@@ -1,0 +1,16 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+	<title>Новый проект</title>
+	<defs>
+		<image  width="50" height="50" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQMAAAAk8RryAAAAAXNSR0IB2cksfwAAAANQTFRFAAAAp3o92gAAAAF0Uk5TAEDm2GYAAAAOSURBVHicY2AYBYMJAAABkAAB07sQ/gAAAABJRU5ErkJggg=="/>
+		<image  width="14" height="12" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAMAAABlXnzoAAAAAXNSR0IB2cksfwAAAIFQTFRFAAAA/2Ji+Vhe+Vlf+Vhg+Vlf+Vlg+Vlf+Vlf/1VV9Flk+Vlf+Vlf+Vlf+Vlf+Vlf+Vpf+Vlf+Vlf+Vlf+Vlf+lhf+Vlf+llg+Vlf+Vlf+lle+llf+Vlf+Vlf+Vhe+Vlf+Vlf+Vlf+Vlf+Vpf+Vlf+Vlf+Vhf91lh+Vlf+Vlf91pehStGfgAAACt0Uk5TAAJEf3Eud35DAga7//6Jb1dXtbS6d3cX8vMXUFGEaWv7+lg84touEHBoCvtwMl8AAABhSURBVHicTcfrGkJAGEXhRQ4x36BUDhU6p/u/QMwjZv3Z+wXH3Xg++EG4jSBWIqKTVI+jYjKZ0trMjr1Y5SibB442TxTlqqqG88oLY9e/GkxtN+F2Z+7xFHm9Wfp8+585A51xB9CcnW3eAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #ffdfb1 } 
+		.shp1 { fill: #ffffff } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0" />
+	<path id="форма 2" class="shp0" d="M22.97 7.69C23.3 6.63 24.42 6.05 25.48 6.38L40.74 11.19C41.79 11.52 42.38 12.64 42.04 13.7L33.03 42.31C32.7 43.37 31.58 43.95 30.52 43.62L15.26 38.81C14.21 38.48 13.62 37.36 13.96 36.3L22.97 7.69Z" />
+	<path id="форма 1" class="shp1" d="M9 8C9 6.9 9.9 6 11 6L27 6C28.1 6 29 6.9 29 8L29 38C29 39.1 28.1 40 27 40L11 40C9.9 40 9 39.1 9 38L9 8Z" />
+	<use id="Слой 1" href="#img2" x="12" y="17" />
+</svg>

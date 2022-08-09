@@ -89,31 +89,57 @@
     .customCardBackText {
         font-size: 18px;
     }
-
-    .customCardSwitchBtn {
-        width: 40px;
-        height: 40px;
-
-        opacity: .3;
-
+    
+    .customCheckbox {
         position: absolute;
-        bottom: 10px;
-        right: 10px;
+        // bottom: 10px;
+        // right: 10px;
+        z-index: 3;
+        opacity: 0;
+    
+        &+label {
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+        }
+    
+        &+label::before {
+            content: '';
+    
+            width: 40px;
+            height: 40px;
+    
+            position: absolute;
+            bottom: 10px;
+            right: 0px;
+    
+            opacity: .3;
+    
+            display: inline-block;
+            flex-shrink: 0;
+            flex-grow: 0;
+    
+            margin-right: 8px;
+    
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+    
+            transform: scale(1, -1)
+            rotate(130deg);
+            transition: opacity 0.3s ease-in-out,
+                width 0.3s ease-in-out,
+                height 0.3s ease-in-out;
+        }
+    
+        &+label::before {
+            background-image: url("../../../public/img/switch.svg");
+        }
+    }    
+}
 
-        transform: scale(1, -1)
-        rotate(130deg);
-        transition: opacity 0.3s ease-in-out,
-            width 0.3s ease-in-out,
-            height 0.3s ease-in-out;
 
-        // &:hover {
-        //     width: 50px;
-        //     height: 50px;
 
-        //     opacity: .6;
-        //     transition: opacity 0.3s ease-in-out,
-        //         width 0.3s ease-in-out,
-        //         height 0.3s ease-in-out;
-        // }
-    }
+.flip {
+    transform: rotateY(180deg);
 }
