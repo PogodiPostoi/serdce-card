@@ -1,0 +1,83 @@
+.demoCard {
+
+    width: 360px;
+    height: 460px;
+
+    position: relative;
+        
+    .demoCardFront, .demoCardBack {
+        padding: 10px 20px 20px;
+
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 15px;
+    }
+
+    .demoCardFront {
+        width: 100%;
+        height: 100%;
+
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        
+        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
+
+        background-color: #fff;
+    }
+
+    .demoCardBack {
+        width: 95%;
+        height: 95%;
+
+        position: absolute;
+        left: 200px;
+        bottom: 0px;
+
+        transform: rotate(20deg);
+        background-color: #fff;
+        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
+
+        .demoCardBackText {
+            font-size: 18px;
+        }
+
+        .demoCardBackImg {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    .demoCardFrontTitle, .demoCardBackText {
+        font-family: 'Neucha', cursive; 
+
+        margin: 20px 0;
+
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .demoCardSwitchBtn {
+        width: 40px;
+        height: 40px;
+
+        opacity: .3;
+
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+
+        transform: scale(1, -1)
+        rotate(130deg);
+        transition: opacity 0.3s ease-in-out,
+            width 0.3s ease-in-out,
+            height 0.3s ease-in-out;
+    }
+}

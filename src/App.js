@@ -1,6 +1,6 @@
 import React from "react";
 
-import Cards from "./pages/Cards";
+import Cards from "./pages/CardList";
 
 import Header from "./components/Header";
 
