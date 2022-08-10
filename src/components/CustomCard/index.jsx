@@ -3,16 +3,14 @@ import React from "react";
 import styles from "./CustomCard.module.scss";
 
 function CustomCard({ customTextRecipient, customText, customTextSender }) {
-  const [switchStyle, setSwitchStyle] = React.useState("");
-
-  const toggleSetSwitchStyle = () => {
-    setSwitchStyle(!switchStyle);
-  };
+  const [isFlipped, setFlipped] = React.useState(false)
 
   return (
-    <div className={styles.customCard}>
+    <div 
+      className={`${styles.customCard} ${isFlipped ? styles.isFlipped : ''}`}
+      onClick={() => setFlipped(!isFlipped)}
+    >
       <div className={styles.customCardFlipper}>
-        {/* // {`styles.customCardFlipper ${switchStyle && styles.flip}`} */}
         <div className={styles.customCardFront}>
           <h3 className={styles.customCardFrontTitle}>
             Кто-то украл моё сердце...
@@ -25,15 +23,8 @@ function CustomCard({ customTextRecipient, customText, customTextSender }) {
           <p className={styles.customCardFrontText}>
             Главный подозреваемый - ТЫ!
           </p>
-          {/* <img className={styles.customCardSwitchBtn} src="./img/switch.svg" alt="switch" /> */}
-          <input
-            className={styles.customCheckbox}
-            onChange={toggleSetSwitchStyle}
-            type="checkbox"
-            name="switch"
-            id="switch"
-          />
-          <label htmlFor="switch"></label>
+          <img className={styles.customCardSwitchBtn} src="./img/switch.svg" alt="switch" />
+
         </div>
         <div className={styles.customCardBack}>
           <img
