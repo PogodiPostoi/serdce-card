@@ -30,6 +30,13 @@ a {
     gap: 20px;
 }
 
+.cardList {
+    .cardListItem {
+        width: 50%;
+        height: 50%;
+    }
+}
+
 @media (max-width: 670px){
     .wrapper {
         height: auto;
