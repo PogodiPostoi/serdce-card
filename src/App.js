@@ -1,6 +1,6 @@
 import React from "react";
 
-import CardList from "./pages/CardList";
+import Cards from "./pages/Cards";
 
 import Header from "./components/Header";
 import CustomCard from "./components/CustomCard";
@@ -15,7 +15,7 @@ function App() {
     <AppContext.Provider value={1}>
       <div className="wrapper">
         <Header />
-        <CardList />
+        <Cards />
       </div>
     </AppContext.Provider>
   );

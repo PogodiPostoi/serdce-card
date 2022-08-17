@@ -1,0 +1,41 @@
+.pagePath {
+    height: 32px;
+
+    opacity: .7;
+
+    font-family: 'Comfortaa', cursive;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+
+    button, 
+    p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    button {
+        background: none;
+
+        &:last-of-type {
+            color: rgb(68, 180, 255);
+            text-decoration: none;
+        }
+
+        &:hover {
+            text-decoration: underline;
+
+            &:last-of-type {
+                text-decoration: none;
+                cursor:auto;
+            }
+        }
+    }
+
+    img {
+        width: 15px;
+        height: 15px;
+    }
+}

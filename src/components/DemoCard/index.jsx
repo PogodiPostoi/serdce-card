@@ -2,18 +2,17 @@ import React from "react";
 
 import styles from "./DemoCard.module.scss";
 
-function DemoCard({CardListItems}) {
-  const renderCards = (item) => {
-    return item.map((item, index) => {
-      return (
-        <div key={index} className={styles.demoCard}>
+function DemoCard({itemProps}) {
+  return (
+        <div className={styles.demoCard}>
+          {console.log(itemProps)}
           <div className={styles.demoCardFront}>
             <h3 className={styles.demoCardFrontTitle}>
-              {item.front_title}
+              {itemProps.front_title}
             </h3>
             <img
               className={styles.demoCardFrontImg}
-              src={item.front_img}
+              src={itemProps.front_img}
               alt=""
             />
             <img
@@ -21,26 +20,21 @@ function DemoCard({CardListItems}) {
               src="./img/switch.svg"
               alt="switch"
             />
-          </div>
-          <div className={styles.demoCardBack}>
+            <div className={styles.demoCardBack}>
             <p className={styles.demoCardBackText}>
-              {item.back_text}
+              {itemProps.back_text}
             </p>
             <img
               className={styles.demoCardBackImg}
-              src={item.back_img}
+              src={itemProps.back_img}
               alt=""
             />
           </div>
+          </div>
+          
         </div>
       );
-    });
-  };
+    };
 
-  return (
-    renderCards(CardListItems)
-  )
-
-}
 
 export default DemoCard;
