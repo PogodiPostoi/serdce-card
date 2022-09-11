@@ -1,0 +1,167 @@
+@import 'nullstyle';
+
+body {
+    margin: 0 auto;
+
+    background-color: rgb(255, 241, 223);
+}
+
+h1,
+h2, 
+h3, 
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button {
+    font-family: 'Comfortaa', cursive;
+}
+
+.wrapper {
+    max-width: 1440px;
+    padding: 10px;
+    margin: auto;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cards {
+    width: 100%;
+    padding: 20px;
+
+    position: relative;
+
+    .cardsTitle {
+        padding: 10px 0;
+        margin: 24px 0;
+
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .cardsContent {
+        display: flex;
+        flex-flow: row;
+
+        .cardsCategories {
+            width: 20%;
+            height: auto;
+    
+            display: flex;
+            flex-flow: column;
+
+            nav {
+                min-width: 200px;
+                border: 1px solid rgb(214, 214, 214);
+                border-radius: .5em;
+
+                .cardsCategoriesButton {
+                    width: 100%;
+                    
+                    padding: 16px 18px;
+    
+                    font-size: 16px;
+                    text-align: left;
+
+                    background-color: #fff;
+
+                    border-bottom: 1px solid rgb(214, 214, 214);
+
+                    &:first-of-type {
+                        border-top-left-radius: .5em;
+                        border-top-right-radius: .5em;
+                    }
+
+                    &:last-of-type {
+                        border-bottom-left-radius: .5em;
+                        border-bottom-right-radius: .5em;
+                        border-bottom: none;
+                    }
+
+                    &:hover {
+                        background-color: rgb(189, 227, 253);
+
+                        font-weight: bold;
+
+                        transition: background-color 0.3s ease-in-out,
+                        font-weight 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+        
+
+        .cardsBody {
+            width: 75%;
+            margin-left: 80px;
+
+            display: flex;
+            flex-flow: column;
+
+            .cardsFilters {
+                width: 100%;
+                margin: 0 0 50px 0;
+                padding: 5px;
+
+                display: flex;
+                flex-flow: row;
+                gap: 30px;
+
+                .cardsFiltersButton {
+                    width: 120px;
+                    padding: 10px;
+
+                    user-select: none; 
+                    cursor: pointer;
+
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    font-size: 16px;
+                    text-align: center;
+
+                    background-color: #fff;
+
+                    border: 1px solid rgb(214, 214, 214);
+                    border-radius: .5em;
+
+                    &:hover {
+                        background-color: rgb(189, 227, 253);
+                        transition: background-color 0.3s ease-in-out, 
+                        font-weight 0.3s ease-in-out;
+
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .cardsList {
+                width: 100%;
+        
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    
+}
+
+@media (max-width: 670px){
+    .wrapper {
+        height: auto;
+        margin: 20px 0;
+
+        flex-direction: column;
+        gap: 50px;
+    }
+}
