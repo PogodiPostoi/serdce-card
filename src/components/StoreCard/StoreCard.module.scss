@@ -1,0 +1,92 @@
+.storeCard {
+    min-width: 330px;
+    min-height: 300px;
+    padding-left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+        
+    .storeCardFront, .storeCardBack {
+        padding: 10px 20px 20px;
+
+        // left: 60px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 15px;
+    }
+
+    .storeCardFront {
+        width: 180px;
+        height: 250px;
+        box-sizing: border-box;
+        
+        position: relative;
+
+        // box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
+
+        background-color: #fff;
+
+        .storeCardFrontImg {
+            width: 120px;
+            height: 105px;
+        }
+    }
+
+    .storeCardBack {
+        width: 180px;
+        height: 250px;
+
+        box-sizing: border-box;
+        position: absolute;
+        left: 110px;
+        top: 10px;
+        z-index: -1;
+
+        transform: rotate(20deg);
+        background-color: #fff;
+        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
+
+        .storeCardBackText {
+            font-size: 10px;
+        }
+
+        .storeCardBackImg {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .storeCardFrontTitle, .storeCardBackText {
+        font-family: 'Neucha', cursive; 
+
+        margin: 10px 0;
+
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .storeCardSwitchBtn {
+        width: 20px;
+        height: 20px;
+
+        opacity: .3;
+
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+
+        transform: scale(1, -1)
+        rotate(130deg);
+        transition: opacity 0.3s ease-in-out,
+            width 0.3s ease-in-out,
+            height 0.3s ease-in-out;
+    }
+}
