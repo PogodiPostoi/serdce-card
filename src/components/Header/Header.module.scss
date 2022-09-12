@@ -27,7 +27,34 @@
     }
 
     .headerBar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
 
+        img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .headerBarCart {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+
+            .headerBarCartText {
+                font-weight: 600;
+            }
+        }
+
+        .headerBarFavorite {
+
+        }
+
+        .headerBarProfile {
+
+        }
     }
 }
 
