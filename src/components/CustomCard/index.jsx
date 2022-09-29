@@ -12,25 +12,19 @@ function CustomCard({ customTextRecipient, customText, customTextSender }) {
     >
       <div className={styles.customCardFlipper}>
         <div className={styles.customCardFront}>
-          <h3 className={styles.customCardFrontTitle}>
-            Кто-то украл моё сердце...
-          </h3>
           <img
             className={styles.customCardFrontImg}
-            src="./img/thief-card/Background.png"
-            alt="thief"
+            src="./img/cards/thief-card/thief_front.png"
+            alt="thief card"
           />
-          <p className={styles.customCardFrontText}>
-            Главный подозреваемый - ТЫ!
-          </p>
           <img className={styles.customCardSwitchBtn} src="./img/switch.svg" alt="switch" />
 
         </div>
         <div className={styles.customCardBack}>
           <img
             className={styles.customCardBackImg}
-            src="./img/thief-card/pointing-finger.png"
-            alt="pointing finger"
+            src="./img/cards/thief-card/thief_back.png"
+            alt="backside"
           />
           {customTextRecipient && (
             <p className={styles.customCardBackTextRecipient}>
