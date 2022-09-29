@@ -1,0 +1,55 @@
+.storeCardDemo {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .storeCardDemoBody {
+        width: 40%;
+        height: 70%;
+        padding: 5rem 2rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2.5rem;
+
+        position: relative;
+
+        background-color: #fff;
+
+        border-radius: 1.428rem;
+
+        .storeCardDemoClosebtn {
+            width: 40px;
+            height: 40px;
+
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+
+            opacity: .5;
+
+            cursor: pointer;
+        }
+
+        .storeCardDemoText {
+            font-weight: 500;
+        }
+
+        .storeCardDemoPriceBlock {
+            display: flex;
+            align-items: center;
+            gap: 15rem;
+
+            .storeCardDemoCost {
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+    }
+}
+

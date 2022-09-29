@@ -8,7 +8,7 @@ const Header = () => {
                 <img src="./img/header/logo.svg" alt="logo" />
                 <div className={styles.headerLogoContent}>
                     <h2>Serdce.cards</h2>
-                    <p>Лучшие электронные открытки</p>
+                    <p>Электронное счастье</p>
                 </div>
             </div>
             <div className={styles.headerBar}>

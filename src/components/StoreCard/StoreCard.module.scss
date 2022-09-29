@@ -7,6 +7,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    cursor: pointer;
         
     .storeCardFront, .storeCardBack {
         padding: 10px 20px 20px;
@@ -29,7 +31,7 @@
         position: relative;
 
         // box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
 
         background-color: #fff;
 
@@ -46,12 +48,14 @@
         box-sizing: border-box;
         position: absolute;
         left: 110px;
-        top: 10px;
+        top: 25px;
         z-index: -1;
 
         transform: rotate(20deg);
         background-color: #fff;
-        box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
+        // box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+
 
         .storeCardBackText {
             font-size: 10px;

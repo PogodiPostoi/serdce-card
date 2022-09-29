@@ -13,11 +13,10 @@ html {
 
 * {
     font-family: 'Comfortaa', cursive;
+    // Впоследствии купить шрифт Graphik
 }
 
 h1 {
-    margin: 20px 0;
-
     font-size: 32px;
     font-weight: 700;
 }
@@ -25,6 +24,15 @@ h1 {
 h2 {
     font-size: 24px;
     font-weight: 700;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+button {
+    font-size: 14px;
 }
 
 body {
@@ -44,17 +52,137 @@ body {
     .store {
         padding: 2rem;
 
-        .storeList {
+        .store__header {
             display: flex;
             flex-direction: row;
-            gap: 50px;
             justify-content: space-between;
             align-items: center;
+        }
 
-            .storeListItem {
-                position: relative;
-                z-index: 0;
+        .store__body {
+            display: flex;
+
+
+            .store__categories {
+                width: 30%;
+
+                .store__categories-title {
+                    padding: 20px 0;
+                }
+
+                .store__categories-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    button {
+                        width: 100%;
+                        min-width: 220px;
+                        padding: 1rem 1rem;
+
+                        background-color: #fff;
+                        border: 1px solid #d3d3d3;
+                        border-bottom: none;
+
+                        text-align: left;
+                    }
+
+                    .store__categories-button--active, 
+                    button:hover, 
+                    button:target {
+                        background-color: #ffdfb1;
+
+                        font-weight: 700;
+                    }
+
+                    button:first-of-type {
+                        border-top-left-radius: .5rem;
+                        border-top-right-radius: .5rem;
+                    }
+
+                    button:last-of-type {
+                        border-bottom-left-radius: .5rem;
+                        border-bottom-right-radius: .5rem;
+                        border-bottom: 1px solid #d3d3d3;;
+                    }
+
+                }
+            }
+    
+            .store__list {
+                padding: 30px;
+
+                display: flex;
+                flex-direction: row;
+                gap: 50px;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+    
+                .store__list-item {
+                    position: relative;
+                    z-index: 0;
+                }
             }
         }
+    }
+
+    .page__title {
+        margin: 20px 0;
+    }
+
+    .search-block {
+        padding: 15px 18px;
+        position: relative;
+    
+        border: 1px solid #e4e4e4;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+
+        img {
+            height: 14px;
+        }
+
+        input::placeholder {
+            color: #C4C4C4;
+        }
+
+
+    }
+
+    .bg--blur {
+        width: 100%;
+        height: 100%;
+    
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        // visibility: hidden;
+        // opacity: 1;
+        overflow: hidden;
+    
+        background-color: rgba(0, 0, 0, 0.5);
+    
+        transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+        
+        backdrop-filter: blur(4px);
+    }
+
+    .btn__buy {
+        padding: 1rem 3rem;
+
+        font-size: 16px;
+        font-weight: 700;
+
+        background-color: #ffdfb1;
+        
+        border-radius: 1rem;
+
     }
 }

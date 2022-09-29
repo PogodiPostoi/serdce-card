@@ -6,8 +6,10 @@ import Store from "./pages/Store"
 function App() {
   return (
     <div className="App">
+      
       <Header />
       <Store />
+      
     </div>
   );
 }
