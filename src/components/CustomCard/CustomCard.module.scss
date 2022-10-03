@@ -35,13 +35,13 @@
         .customCardFront {
             z-index: 2;
             transform: rotateY(0deg);
-            filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.2));
+            filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.08));
         }
     
         .customCardBack {
             transform: rotateY(-180deg);
             background-color: #fff;
-            filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.2));
+            filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.08));
 
             .customCardBackTextRecipient {
                 margin-top: 50px;

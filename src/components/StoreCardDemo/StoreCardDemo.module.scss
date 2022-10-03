@@ -15,7 +15,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 2.5rem;
+        gap: 1.5rem;
 
         position: relative;
 
@@ -37,6 +37,8 @@
         }
 
         .storeCardDemoText {
+            margin-top: 10px;
+
             font-weight: 500;
         }
 
