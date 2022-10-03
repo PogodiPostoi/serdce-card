@@ -7,18 +7,33 @@ import CardListItems from '../cardsLayout/layoutCardsList';
 const Store = () => {
 
     const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
+    const [searchValue, setSearchValue] = React.useState("");
+    const [demoCardId, setDemoCardId] = React.useState("");
 
-    const onToggleCardDemo = () => {
+    const onToggleCardDemo = (id) => {
         setCardDemoOpened(!cardDemoOpened)
+        setDemoCardId(id)
     }
+
+    const onChangeSearchInput = (event) => {
+        setSearchValue(event.target.value)
+      }
     
-    const cardList = CardListItems.map((item, i) => {
+    const StoreCardDemoData = CardListItems.find((i) => i.id === demoCardId)
+    const filteredItems = CardListItems.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+
+    const cardList = filteredItems.map((item, i) => {
         return(
             <div className="store__list-item" key={i}>
                 <StoreCard  
                     itemProps = {item} 
                     onToggleCardDemo = {onToggleCardDemo}
                 />
+                <h3 className='store__list-item-title'>{item.title}</h3>
+                <div className='store__list-item-price-block'>
+                    <p className='store__list-item-price-block-cost'>{item.price} руб.</p>
+                    <button className="btn__buy btn__buy--store">Купить</button>
+                </div>
             </div>
         )
     })
@@ -27,14 +42,27 @@ const Store = () => {
         <div className="store">
             {cardDemoOpened && <StoreCardDemo 
                                     onToggleCardDemo = {onToggleCardDemo}
+                                    StoreCardDemoData = {StoreCardDemoData}
                                 /> 
             }
 
             <div className="store__header">
                 <h1 className="page__title">Все открытки</h1>
                 <div className="search-block">
-                    <img src="./img/search-icon.svg" alt="search" />
-                    <input type="text" placeholder="Поиск..."/>
+                    <img className="search-block__lens" src="./img/search-icon.svg" alt="search" />
+                    <input
+                        onChange={onChangeSearchInput}
+                        value={searchValue}
+                        placeholder="Поиск..."
+                    />
+                    {searchValue && (
+                            <img
+                            onClick={() => setSearchValue("")}
+                            className="clear"
+                            src="/img/btn-remove.svg"
+                            alt="Remove"
+                            />
+                        )}
                 </div>
             </div>
             <div className="store__body">

@@ -1,42 +1,47 @@
 const CardListItems = [
     {
+        'id': 1,
         'name': 'thief_card',
-        'front_title': 'Кто-то украл моё сердце...1',
-        'front_img': './img/thief-card/Background.png',
-        'back_text': 'Главный подозреваемый - ТЫ!',
-        'back_img': './img/thief-card/pointing-finger.png',
+        'title': 'Воришка',
+        'front_img': './img/cards/thief-card/thief_front.png',
+        'back_img': './img/cards/thief-card/thief_back.png',
+        'price': 148,
         'card_type': 1
     },
     {
+        'id': 2,
         'name': 'thief_card',
-        'front_title': 'Кто-то украл моё сердце...2',
-        'front_img': './img/thief-card/Background.png',
-        'back_text': 'Главный подозреваемый - ТЫ!',
-        'back_img': './img/thief-card/pointing-finger.png',
+        'title': 'Воришка1',
+        'front_img': './img/cards/thief-card/thief_front.png',
+        'back_img': './img/cards/thief-card/thief_back.png',
+        'price': 132,
         'card_type': 1
     },
     {
+        'id': 3,
         'name': 'thief_card',
-        'front_title': 'Кто-то украл моё сердце...3',
-        'front_img': './img/thief-card/Background.png',
-        'back_text': 'Главный подозреваемый - ТЫ!',
-        'back_img': './img/thief-card/pointing-finger.png',
+        'title': 'Воришка2',
+        'front_img': './img/cards/thief-card/thief_front.png',
+        'back_img': './img/cards/thief-card/thief_back.png',
+        'price': 114,
         'card_type': 1
     },
     {
+        'id': 4,
         'name': 'thief_card',
-        'front_title': 'Кто-то украл моё сердце...4',
-        'front_img': './img/thief-card/Background.png',
-        'back_text': 'Главный подозреваемый - ТЫ!',
-        'back_img': './img/thief-card/pointing-finger.png',
+        'title': 'Воришка3',
+        'front_img': './img/cards/thief-card/thief_front.png',
+        'back_img': './img/cards/thief-card/thief_back.png',
+        'price': 155,
         'card_type': 1
     },
     {
+        'id': 5,
         'name': 'thief_card',
-        'front_title': 'Кто-то украл моё сердце...5',
-        'front_img': './img/thief-card/Background.png',
-        'back_text': 'Главный подозреваемый - ТЫ!',
-        'back_img': './img/thief-card/pointing-finger.png',
+        'title': 'Воришка4',
+        'front_img': './img/cards/thief-card/thief_front.png',
+        'back_img': './img/cards/thief-card/thief_back.png',
+        'price': 100,
         'card_type': 1
     }
 ]

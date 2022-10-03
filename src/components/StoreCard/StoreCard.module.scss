@@ -11,9 +11,6 @@
     cursor: pointer;
         
     .storeCardFront, .storeCardBack {
-        padding: 10px 20px 20px;
-
-        // left: 60px;
 
         display: flex;
         flex-direction: column;
@@ -25,30 +22,29 @@
 
     .storeCardFront {
         width: 180px;
-        height: 250px;
+        height: 230px;
         box-sizing: border-box;
         
         position: relative;
 
-        // box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
 
         background-color: #fff;
 
         .storeCardFrontImg {
-            width: 120px;
-            height: 105px;
+            width: 100%;
+            height: 100%;
         }
     }
 
     .storeCardBack {
         width: 180px;
-        height: 250px;
+        height: 230px;
 
         box-sizing: border-box;
         position: absolute;
         left: 110px;
-        top: 25px;
+        top: 35px;
         z-index: -1;
 
         transform: rotate(20deg);
@@ -56,25 +52,10 @@
         // box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
 
-
-        .storeCardBackText {
-            font-size: 10px;
-        }
-
         .storeCardBackImg {
-            width: 35px;
-            height: 35px;
+            width: 100%;
+            height: 100%;
         }
-    }
-
-    .storeCardFrontTitle, .storeCardBackText {
-        font-family: 'Neucha', cursive; 
-
-        margin: 10px 0;
-
-        font-size: 13px;
-        font-weight: bold;
-        text-align: center;
     }
 
     .storeCardSwitchBtn {

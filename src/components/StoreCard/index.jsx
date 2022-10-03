@@ -4,16 +4,12 @@ import styles from "./StoreCard.module.scss";
 
 function StoreCard({itemProps, onToggleCardDemo}) {
 
-
     const renderStoreCard = () => {
         switch (itemProps.card_type) {
             case 1:
                 return(
                     <>
                         <div className={styles.storeCardFront}>
-                            <h3 className={styles.storeCardFrontTitle}>
-                            {itemProps.front_title}
-                            </h3>
                             <img
                             className={styles.storeCardFrontImg}
                             src={itemProps.front_img}
@@ -41,7 +37,8 @@ function StoreCard({itemProps, onToggleCardDemo}) {
                 case 2:
                 return(
                     <>
-                        2
+                        2 
+                        {/* Добавить несколько вариантов карточек */}
                     </>
                 );
         
@@ -52,7 +49,7 @@ function StoreCard({itemProps, onToggleCardDemo}) {
 
     return (
     
-        <div className={styles.storeCard} onClick={onToggleCardDemo}>
+        <div className={styles.storeCard} onClick={() => onToggleCardDemo(itemProps.id)}>
             {renderStoreCard()}
         </div>
     );

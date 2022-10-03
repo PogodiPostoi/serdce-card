@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./CustomCard.module.scss";
 
-function CustomCard({ customTextRecipient, customText, customTextSender }) {
+function CustomCard({ customTextRecipient, customText, customTextSender, customCardData }) {
   const [isFlipped, setFlipped] = React.useState(false)
 
   return (
@@ -14,7 +14,7 @@ function CustomCard({ customTextRecipient, customText, customTextSender }) {
         <div className={styles.customCardFront}>
           <img
             className={styles.customCardFrontImg}
-            src="./img/cards/thief-card/thief_front.png"
+            src={customCardData.front_img}
             alt="thief card"
           />
           <img className={styles.customCardSwitchBtn} src="./img/switch.svg" alt="switch" />
@@ -23,7 +23,7 @@ function CustomCard({ customTextRecipient, customText, customTextSender }) {
         <div className={styles.customCardBack}>
           <img
             className={styles.customCardBackImg}
-            src="./img/cards/thief-card/thief_back.png"
+            src={customCardData.back_img}
             alt="backside"
           />
           {customTextRecipient && (
