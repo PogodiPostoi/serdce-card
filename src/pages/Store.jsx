@@ -1,4 +1,5 @@
 import React from 'react';
+// import { CSSTransition } from 'react-transition-group';
 
 import StoreCard from '../components/StoreCard';
 import StoreCardDemo from "../components/StoreCardDemo"
@@ -6,22 +7,26 @@ import CardListItems from '../cardsLayout/layoutCardsList';
 
 const Store = () => {
 
+    // Блок хуков и функций к ним
     const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
     const [searchValue, setSearchValue] = React.useState("");
-    const [demoCardId, setDemoCardId] = React.useState("");
+    const [demoCardId, setDemoCardId] = React.useState(1);
 
     const onToggleCardDemo = (id) => {
         setCardDemoOpened(!cardDemoOpened)
         setDemoCardId(id)
+        console.log(cardDemoOpened)
     }
 
     const onChangeSearchInput = (event) => {
         setSearchValue(event.target.value)
-      }
-    
+    }
+
+    // Обрабатываемый массив
     const StoreCardDemoData = CardListItems.find((i) => i.id === demoCardId)
     const filteredItems = CardListItems.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
 
+    //Карточки
     const cardList = filteredItems.map((item, i) => {
         return(
             <div className="store__list-item" key={i}>
@@ -38,14 +43,24 @@ const Store = () => {
         )
     })
 
-    return (
-        <div className="store">
-            {cardDemoOpened && <StoreCardDemo 
-                                    onToggleCardDemo = {onToggleCardDemo}
-                                    StoreCardDemoData = {StoreCardDemoData}
-                                /> 
-            }
+    
 
+    return (
+        <div className="store" >
+                    <StoreCardDemo 
+                        onToggleCardDemo = {onToggleCardDemo}
+                        StoreCardDemoData = {StoreCardDemoData}
+                        cardDemoOpened = {cardDemoOpened}
+                    />  
+
+                {/* <CSSTransition
+                in={cardDemoOpened}
+                classNames="storeCardDemoAnimation"
+                timeout={300}
+                unmountOnExit
+                > */}
+                    
+                
             <div className="store__header">
                 <h1 className="page__title">Все открытки</h1>
                 <div className="search-block">

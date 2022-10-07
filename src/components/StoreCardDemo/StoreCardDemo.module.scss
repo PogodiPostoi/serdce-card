@@ -6,6 +6,9 @@
     justify-content: center;
     align-items: center;
 
+    transition: all 0.1s ease-in-out;
+
+
     .storeCardDemoBody {
         width: 40%;
         height: 70%;
@@ -53,5 +56,6 @@
             }
         }
     }
-}
 
+    
+}
