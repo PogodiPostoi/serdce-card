@@ -24,7 +24,7 @@ const Store = () => {
   const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
   const [demoCardId, setDemoCardId] = React.useState("");
-  const [activeFilter, setActiveFilter] = React.useState(false);
+  const [activeFilter, setActiveFilter] = React.useState("");
 
   const onToggleCardDemo = (id) => {
     setCardDemoOpened(!cardDemoOpened);
