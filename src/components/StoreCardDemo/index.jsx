@@ -1,12 +1,10 @@
 import React from 'react';
-import autoAnimate from '@formkit/auto-animate';
 
 import styles from './StoreCardDemo.module.scss'
 
 import CustomCard from '../CustomCard'
 
 const StoreCardDemo = ({ onToggleCardDemo, StoreCardDemoData, cardDemoOpened }) => {
-    // const [parent] = autoAnimate.useAutoAnimate(/* optional config */)
 
     return(
         <div 
@@ -14,10 +12,9 @@ const StoreCardDemo = ({ onToggleCardDemo, StoreCardDemoData, cardDemoOpened }) 
         }
         >
             <div className={` ${styles.storeCardDemo}`} 
-            // ref={parent}
             > 
                 <div className={styles.storeCardDemoBody}>
-                    <img className={styles.storeCardDemoClosebtn} src="./img/close.svg" alt="close" onClick={() => onToggleCardDemo(StoreCardDemoData.id)}/>
+                    <img className={styles.storeCardDemoClosebtn} src="./img/close.svg" alt="close" onClick={() => onToggleCardDemo("")}/>
                     <CustomCard 
                         customCardData = {StoreCardDemoData}
                     />

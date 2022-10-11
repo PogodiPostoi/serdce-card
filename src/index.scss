@@ -152,26 +152,6 @@ body {
             }
         }
 
-        // .storeCardDemoAnimation-enter {
-        //     opacity: 0;
-        //     transform: scale(.9);
-        // }
-
-        // .storeCardDemoAnimation-enter-active {
-        //     opacity: 1;
-        //     transform: translateX(0);
-        //     transition: opacity 300ms, transform 300ms;
-        // }
-
-        // .storeCardDemoAnimation-exit {
-        //     opacity: 1;
-        // }
-
-        // .storeCardDemoAnimation-exit-active {
-        //     opacity: 0;
-        //     transform: scale(.9);
-        //     transition: opacity 300ms, transform 300ms;
-        // }
     }
 
     .page__title {
@@ -220,8 +200,7 @@ body {
         overflow: hidden;
     
         background-color: rgba(0, 0, 0, 0.5);
-    
-        
+
         backdrop-filter: blur(4px);
     }
 
@@ -243,6 +222,8 @@ body {
     .clear {
         width: 22px;
         height: 22px;
+
+        cursor: pointer;
     }
 
     .show {
