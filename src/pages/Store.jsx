@@ -5,10 +5,26 @@ import StoreCardDemo from "../components/StoreCardDemo";
 import CardListItems from "../cardsLayout/layoutCardsList";
 
 const Store = () => {
+  const filterButtons = [
+    {
+      title: "Все открытки",
+      value: "",
+    },
+    {
+      title: "На день рождения",
+      value: "На_день_рождения",
+    },
+    {
+      title: "Второй половинке",
+      value: "Второй_половинке",
+    },
+  ];
+
   // Блок хуков и функций к ним
   const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
   const [demoCardId, setDemoCardId] = React.useState("");
+  const [activeFilter, setActiveFilter] = React.useState(false);
 
   const onToggleCardDemo = (id) => {
     setCardDemoOpened(!cardDemoOpened);
@@ -18,6 +34,7 @@ const Store = () => {
 
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
+    setActiveFilter(event.target.value);
   };
 
   // Обрабатываемый массив
@@ -37,6 +54,28 @@ const Store = () => {
           <button className="btn__buy btn__buy--store">Купить</button>
         </div>
       </div>
+    );
+  });
+
+  //Кнопки фильтрации
+  const buttonList = filterButtons.map((item, i) => {
+    return (
+      <label
+        key={item.name}
+        className={
+          activeFilter === item.value
+            ? "store__categories-button store__categories-button--active"
+            : "store__categories-button"
+        }
+      >
+        <input
+          type="radio"
+          name="card_type"
+          value={item.value}
+          onClick={onChangeSearchInput}
+        />
+        {item.title}
+      </label>
     );
   });
 
@@ -75,22 +114,7 @@ const Store = () => {
       <div className="store__body">
         <aside className="store__categories">
           <h3 className="store__categories-title">Категории</h3>
-          <div className="store__categories-content">
-            <button
-              value=""
-              className="store__categories-button--active"
-              onClick={onChangeSearchInput}
-            >
-              Все открытки
-            </button>
-            <button value="На_день_рождения" onClick={onChangeSearchInput}>
-              На день рождения
-            </button>
-            <button
-                value="Второй_половинке" onClick={onChangeSearchInput}
-            >
-                Второй половинке</button>
-          </div>
+          <div className="store__categories-content">{buttonList}</div>
         </aside>
         <main className="store__list">{cardList}</main>
       </div>

@@ -75,7 +75,7 @@ body {
                     flex-direction: column;
                     align-items: flex-start;
 
-                    button {
+                    .store__categories-button {
                         width: 100%;
                         min-width: 220px;
                         padding: 1rem 1rem;
@@ -85,25 +85,33 @@ body {
                         border-bottom: none;
 
                         text-align: left;
-                    }
 
-                    .store__categories-button--active, 
-                    button:hover, 
-                    button:target {
+                        cursor: pointer;
+                        
+                        input {
+                            display: none;
+                        }
+
+                        &:first-of-type {
+                            border-top-left-radius: .5rem;
+                            border-top-right-radius: .5rem;
+                        }
+
+                        &:last-of-type {
+                            border-bottom-left-radius: .5rem;
+                            border-bottom-right-radius: .5rem;
+                            border-bottom: 1px solid #d3d3d3;
+                        }
+
+                        &:active {
+                            background-color: #fccb86;
+                        }
+                    }
+                    
+                    .store__categories-button--active {
                         background-color: #ffdfb1;
 
                         font-weight: 700;
-                    }
-
-                    button:first-of-type {
-                        border-top-left-radius: .5rem;
-                        border-top-right-radius: .5rem;
-                    }
-
-                    button:last-of-type {
-                        border-bottom-left-radius: .5rem;
-                        border-bottom-right-radius: .5rem;
-                        border-bottom: 1px solid #d3d3d3;;
                     }
 
                 }
