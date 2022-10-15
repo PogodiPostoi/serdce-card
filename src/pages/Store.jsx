@@ -1,10 +1,12 @@
 import React from "react";
+import axios from "axios";
 
 import StoreCard from "../components/StoreCard";
 import StoreCardDemo from "../components/StoreCardDemo";
-import CardListItems from "../cardsLayout/layoutCardsList";
 
 const Store = () => {
+
+  // Кнопки фильтрации
   const filterButtons = [
     {
       title: "Все открытки",
@@ -21,6 +23,7 @@ const Store = () => {
   ];
 
   // Блок хуков и функций к ним
+  const [CardListItems, setCardListItems] = React.useState([])
   const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
   const [demoCardId, setDemoCardId] = React.useState("");
@@ -37,13 +40,30 @@ const Store = () => {
     setActiveFilter(event.target.value);
   };
 
+  // Запрос открыток с сервера
+  React.useEffect(() => {
+    async function fetchData() {
+      try {
+        const cardListResponse = await axios.get("https://634afa40d90b984a1e340df0.mockapi.io/cardListItems")
+        
+        setCardListItems(cardListResponse.data)
+        
+      } catch (error) {
+        alert("Ошибка при запросе данных :(")
+        console.error(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
   // Обрабатываемый массив
   const StoreCardDemoData = CardListItems.find((i) => i.id === demoCardId);
   const filteredItems = CardListItems.filter((item) =>
     item.category.includes(searchValue)
   );
 
-  //Карточки
+  // Рендер открыток
   const cardList = filteredItems.map((item, i) => {
     return (
       <div className="store__list-item" key={i}>
@@ -57,8 +77,8 @@ const Store = () => {
     );
   });
 
-  //Кнопки фильтрации
-  const buttonList = filterButtons.map((item, i) => {
+  // Рендер кнопок фильтрации
+  const buttonList = filterButtons.map((item) => {
     return (
       <label
         key={item.name}
