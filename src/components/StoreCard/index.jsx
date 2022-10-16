@@ -7,7 +7,7 @@ function StoreCard({itemProps, onToggleCardDemo}) {
     const renderStoreCard = () => {
         switch (itemProps.card_type) {
             case 1:
-                return(
+                return (
                     <>
                         <div className={styles.storeCardFront}>
                             <img
@@ -34,13 +34,13 @@ function StoreCard({itemProps, onToggleCardDemo}) {
                     </>
                 );
 
-                case 2:
-                return(
-                    <>
-                        2 
-                        {/* Добавить несколько вариантов карточек */}
-                    </>
-                );
+                // case 2:
+                // return(
+                //     <>
+                //         2 
+                //         {/* Добавить несколько вариантов карточек */}
+                //     </>
+                // );
         
             default:
                 break;
