@@ -22,7 +22,7 @@ const Header = () => {
                     <Link to={"/favorites"}>
                         <img className={styles.headerBarFavorite} src="./img/header/favorite.svg" alt="favorite" />
                     </Link>
-                    <img className={styles.headerBarProfile} src="./img/header/profile.svg" alt="profile" />
+                    {/* <img className={styles.headerBarProfile} src="./img/header/profile.svg" alt="profile" /> */}
                 </div>
             </div>
             <div className={styles.line}></div>

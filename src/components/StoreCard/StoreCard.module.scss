@@ -3,6 +3,8 @@
     min-height: 300px;
     padding-left: 20px;
 
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,6 +13,14 @@
     cursor: pointer;
 
     transition: all 0.3s ease-in-out;
+
+    .storeCardFavorite {
+        position: absolute;
+
+        top: 20px;
+        left: 5px;
+        z-index: 1;
+    }
         
     .storeCardFront, .storeCardBack {
 

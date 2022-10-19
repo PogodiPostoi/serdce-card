@@ -7,7 +7,7 @@ import CustomCard from "../CustomCard";
 const StoreCardDemo = ({ onToggleCardDemo, cardDemoData, cardDemoOpened }) => {
   return (
     <div className={cardDemoOpened ? `bg--blur show` : `bg--blur hide`}>
-      <div className={` ${styles.storeCardDemo}`}>
+      <div className={styles.storeCardDemo}>
         <div className={styles.storeCardDemoBody}>
           <img
             className={styles.storeCardDemoClosebtn}
