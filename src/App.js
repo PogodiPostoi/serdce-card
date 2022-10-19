@@ -1,9 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { 
-  createBrowserRouter, 
-  RouterProvider, 
-  Route, Routes, Router, createRoutesFromElements } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Header from "./components/Header";
 import Store from "./pages/Store"
@@ -70,7 +67,6 @@ function App() {
             />
           }
         ]
-        // Для случаев, когда нужно добавить страницу errorPage - errorElement: <Компонент />
       }
     ]
   )
