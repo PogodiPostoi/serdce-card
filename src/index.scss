@@ -107,9 +107,13 @@ body {
                         &:active {
                             background-color: #fccb86;
                         }
+
+                        &:hover {
+                            background-color: #ffdfb1;
+                        }
                     }
                     
-                    .store__categories-button--active {
+                        .store__categories-button--active {
                         background-color: #ffdfb1;
 
                         font-weight: 700;
