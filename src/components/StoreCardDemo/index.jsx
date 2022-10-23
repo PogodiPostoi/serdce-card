@@ -19,9 +19,9 @@ const StoreCardDemo = ({ onToggleCardDemo, cardDemoData, cardDemoOpened }) => {
           <h3 className={styles.storeCardDemoText}>{cardDemoData.title}</h3>
           <div className={styles.storeCardDemoPriceBlock}>
             <p className={styles.storeCardDemoCost}>
-              {cardDemoData.price} руб.
+              {Number(cardDemoData.price) > 0 ? `${cardDemoData.price} руб.`: 'Бесплатно'} 
             </p>
-            <button className="btn__buy">Купить</button>
+            <button className="btn__buy">Подписать</button>
           </div>
         </div>
       </div>

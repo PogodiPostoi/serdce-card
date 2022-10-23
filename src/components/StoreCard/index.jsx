@@ -3,16 +3,13 @@ import React from "react";
 import styles from "./StoreCard.module.scss";
 
 function StoreCard({ itemProps, onToggleCardDemo }) {
+    
+
   const renderStoreCard = () => {
     switch (itemProps.card_type) {
       case 1:
         return (
           <>
-            <img
-              className={styles.storeCardFavorite}
-              src="./img/liked.svg"
-              alt="liked"
-            />
             <div className={styles.storeCardFront}>
               <img
                 className={styles.storeCardFrontImg}

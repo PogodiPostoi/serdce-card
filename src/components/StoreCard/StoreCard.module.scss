@@ -13,15 +13,7 @@
     cursor: pointer;
 
     transition: all 0.3s ease-in-out;
-
-    .storeCardFavorite {
-        position: absolute;
-
-        top: 20px;
-        left: 5px;
-        z-index: 1;
-    }
-        
+ 
     .storeCardFront, .storeCardBack {
 
         display: flex;

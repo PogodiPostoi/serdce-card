@@ -7,16 +7,21 @@ import Store from "./pages/Store"
 import Favorites from "./pages/Favorites";
 
 function App() {
-  const [CardListItems, setCardListItems] = React.useState([])
+  const [CardListItems, setCardListItems] = React.useState([]);
   const [favoriteListItems, setFavoriteListItems] = React.useState([]);
   const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
   const [demoCardId, setDemoCardId] = React.useState("");
+  const [favorites, setFavorites] = React.useState([]);
 
   const onToggleCardDemo = (id) => {
     setCardDemoOpened(!cardDemoOpened);
     setDemoCardId(id);
     console.log(cardDemoOpened);
   };
+
+  const onSetFavorites = () => {
+
+  }
 
   // Запрос открыток с сервера
   React.useEffect(() => {
@@ -49,7 +54,8 @@ function App() {
         children: [
           {
             path: "/",
-            element: <Store 
+            element: 
+            <Store 
               CardListItems = {CardListItems}
               onToggleCardDemo = {onToggleCardDemo}
               demoCardId = {demoCardId}
@@ -59,7 +65,8 @@ function App() {
           },
           {
             path: "/favorites",
-            element: <Favorites 
+            element: 
+            <Favorites 
               favoriteListItems={favoriteListItems}
               onToggleCardDemo={onToggleCardDemo}
               demoCardId={demoCardId}
