@@ -6,7 +6,9 @@ import CustomCard from "../CustomCard";
 
 const StoreCardDemo = ({ onToggleCardDemo, cardDemoData, cardDemoOpened }) => {
   return (
-    <div className={cardDemoOpened ? `bg--blur show` : `bg--blur hide`}>
+    <div
+      className={cardDemoOpened ? `bg--blur show` : `bg--blur hide`}
+    >
       <div className={styles.storeCardDemo}>
         <div className={styles.storeCardDemoBody}>
           <img
@@ -19,7 +21,9 @@ const StoreCardDemo = ({ onToggleCardDemo, cardDemoData, cardDemoOpened }) => {
           <h3 className={styles.storeCardDemoText}>{cardDemoData.title}</h3>
           <div className={styles.storeCardDemoPriceBlock}>
             <p className={styles.storeCardDemoCost}>
-              {Number(cardDemoData.price) > 0 ? `${cardDemoData.price} руб.`: 'Бесплатно'} 
+              {Number(cardDemoData.price) > 0
+                ? `${cardDemoData.price} руб.`
+                : "Бесплатно"}
             </p>
             <button className="btn__buy">Подписать</button>
           </div>

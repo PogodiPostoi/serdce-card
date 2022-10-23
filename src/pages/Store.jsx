@@ -3,8 +3,15 @@ import React from "react";
 import StoreCard from "../components/StoreCard";
 import StoreCardDemo from "../components/StoreCardDemo";
 
-const Store = ( { CardListItems, onToggleCardDemo, demoCardId, cardDemoOpened } ) => {
-
+const Store = ({
+  CardListItems,
+  onToggleCardDemo,
+  demoCardId,
+  cardDemoOpened,
+  onSetFavorites,
+  favoriteListItems,
+  isItemFavorited
+}) => {
   // Кнопки фильтрации
   const filterButtons = [
     {
@@ -24,16 +31,11 @@ const Store = ( { CardListItems, onToggleCardDemo, demoCardId, cardDemoOpened } 
   // Блок хуков и функций к ним
   const [searchValue, setSearchValue] = React.useState("");
   const [activeFilter, setActiveFilter] = React.useState("");
-  const [isFavorite, setIsFavorite] = React.useState(false);
 
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
     setActiveFilter(event.target.value);
   };
-
-  const onChangeIsFavorite = () => {
-    setIsFavorite(!isFavorite)
-  }
 
   // Обрабатываемый массив
   const cardDemoData = CardListItems.find((i) => i.id === demoCardId);
@@ -45,17 +47,17 @@ const Store = ( { CardListItems, onToggleCardDemo, demoCardId, cardDemoOpened } 
   const cardList = filteredItems.map((item, i) => {
     return (
       <div className="page__list-item" key={i}>
-        <img
-          className="page__list-item-favorite"
-          src={isFavorite ? "./img/liked.svg" : "./img/unliked.png"}
-          alt="favorite button"
-          onClick={onChangeIsFavorite}
+        <StoreCard
+          itemProps={item}
+          onToggleCardDemo={onToggleCardDemo}
+          onSetFavorites={onSetFavorites}
+          isFavorite={favoriteListItems.some(obj => Number(obj.id) === Number(item.id))}
+          isItemFavorited={isItemFavorited}
         />
-        <StoreCard itemProps={item} onToggleCardDemo={onToggleCardDemo}/>
         <h3 className="page__list-item-title">{item.title}</h3>
         <div className="page__list-item-price-block">
           <p className="page__list-item-price-block-cost">
-            {Number(item.price) > 0 ? `${item.price} руб.`: 'Бесплатно'} 
+            {Number(item.price) > 0 ? `${item.price} руб.` : "Бесплатно"}
           </p>
           <button className="btn__buy btn__buy--store">Подписать</button>
         </div>
@@ -65,7 +67,6 @@ const Store = ( { CardListItems, onToggleCardDemo, demoCardId, cardDemoOpened } 
 
   // Рендер кнопок фильтрации
   const buttonList = filterButtons.map((item) => {
-
     return (
       <label
         key={item.name}
