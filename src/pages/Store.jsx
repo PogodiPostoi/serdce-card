@@ -45,13 +45,15 @@ const Store = ({
 
   // Рендер открыток
   const cardList = filteredItems.map((item, i) => {
+
     return (
       <div className="page__list-item" key={i}>
         <StoreCard
+          id={item.id}
           itemProps={item}
           onToggleCardDemo={onToggleCardDemo}
           onSetFavorites={onSetFavorites}
-          isFavorite={favoriteListItems.some(obj => Number(obj.id) === Number(item.id))}
+          isFavorite={favoriteListItems.some(obj => Number(obj.parentId) === Number(item.id))}
           isItemFavorited={isItemFavorited}
         />
         <h3 className="page__list-item-title">{item.title}</h3>

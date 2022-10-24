@@ -8,14 +8,23 @@ const Favorites = ({
   onToggleCardDemo,
   demoCardId,
   cardDemoOpened,
+  onSetFavorites,
+  isItemFavorited,
+  CardListItems
 }) => {
+
   // Рендер избранных открыток
   const favoriteList = favoriteListItems.map((item, i) => {
+
     return (
       <div className="page__list-item" key={i}>
         <StoreCard
+          id={item.id}
           itemProps={item}
           onToggleCardDemo={onToggleCardDemo}
+          onSetFavorites={onSetFavorites}
+          isFavorite={true}
+          isItemFavorited={isItemFavorited}
         />
         <h3 className="page__list-item-title">{item.title}</h3>
         <div className="page__list-item-price-block">
@@ -25,6 +34,7 @@ const Favorites = ({
       </div>
     );
   });
+
 
   // Обрабатываемый массив
   const cardDemoData = favoriteListItems.find((i) => i.id === demoCardId);

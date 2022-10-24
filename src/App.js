@@ -37,7 +37,7 @@ function App() {
               };
             }
             return item;
-          }),
+          })
         );
       }
     } catch (error) {
@@ -97,10 +97,13 @@ function App() {
           path: "/favorites",
           element: (
             <Favorites
+              CardListItems={CardListItems}
               favoriteListItems={favoriteListItems}
               onToggleCardDemo={onToggleCardDemo}
               demoCardId={demoCardId}
               cardDemoOpened={cardDemoOpened}
+              isItemFavorited={isItemFavorited}
+              onSetFavorites={onSetFavorites}
             />
           ),
         },

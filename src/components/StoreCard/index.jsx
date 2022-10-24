@@ -2,9 +2,9 @@ import React from "react";
 
 import styles from "./StoreCard.module.scss";
 
-function StoreCard({ itemProps, onToggleCardDemo, onSetFavorites, isFavorite, isItemFavorited }) {
+function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite, isItemFavorited }) {
 
-  const obj = { parentId: itemProps.id, ...itemProps };
+  const obj = { parentId: id, ...itemProps };
   const [toFavorite, setToFavorite] = React.useState(isFavorite);
 
   const onChangeIsFavorite = () => {
@@ -12,17 +12,22 @@ function StoreCard({ itemProps, onToggleCardDemo, onSetFavorites, isFavorite, is
     setToFavorite(!toFavorite);
   };
 
+  console.log(toFavorite)
+
   const renderStoreCard = () => {
     switch (itemProps.card_type) {
       case 1:
         return (
           <>
-            <img
-              className="page__list-item-favorite"
-              src={isItemFavorited(itemProps.id) ? "./img/liked.svg" : "./img/unliked.png"}
-              alt="favorite button"
-              onClick={onChangeIsFavorite}
-            />
+            {
+              onSetFavorites &&
+                <img
+                  className="page__list-item-favorite"
+                  src={toFavorite ? "./img/liked.svg" : "./img/unliked.png"}
+                  alt="favorite button"
+                  onClick={onChangeIsFavorite}
+                />
+            }
             <div className={styles.storeCardFront}>
               <img
                 className={styles.storeCardFrontImg}
