@@ -19,21 +19,26 @@ function App() {
 
   const onSetFavorites = async (obj) => {
     try {
-      if (
-        favoriteListItems.find((favObj) => Number(favObj.id) === Number(obj.id))
-      ) {
-        axios.delete(
-          `https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems/${obj.id}`
-        );
-        setFavoriteListItems((prev) =>
-          prev.filter((item) => Number(item.id) !== Number(obj.id))
+      const findFavoriteItem = favoriteListItems.find((item) => Number(item.parentId) === Number(obj.id));
+      if (findFavoriteItem) {
+        setFavoriteListItems((prev) => prev.filter((item) => Number(item.parentId) !== Number(obj.id)));
+        await axios.delete(
+          `https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems/${findFavoriteItem.id}`
         );
       } else {
-        const { data } = await axios.post(
-          "https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems",
-          obj
+        setFavoriteListItems((prev) => [...prev, obj]);
+        const { data } = await axios.post('https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems', obj);
+        setFavoriteListItems((prev) =>
+          prev.map((item) => {
+            if (item.parentId === data.parentId) {
+              return {
+                ...item,
+                id: data.id,
+              };
+            }
+            return item;
+          }),
         );
-        setFavoriteListItems((prev) => [...prev, data]);
       }
     } catch (error) {
       alert("Не удалось добавить в фавориты");
@@ -44,23 +49,6 @@ function App() {
   const isItemFavorited = (id) => {
     return favoriteListItems.some(obj => Number(obj.parentId) === Number(id))
   }
-
-  console.log(isItemFavorited)
-
-  // const onSetFavorites = async (obj) => {
-  //   try {
-  //     if (favoriteListItems.find(favObj => Number(favObj.id) === Number(obj.id))) {
-  //       axios.delete(`https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems/${obj.id}`)
-  //       setFavoriteListItems(prev => prev.filter(item => Number(item.id) !== Number(obj.id)))
-  //     } else {
-  //       const { data } = await axios.post("https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems", obj)
-  //       setFavoriteListItems(prev => [...prev, data])
-  //     }
-  //   } catch (error) {
-  //     alert("Не удалось добавить в фавориты")
-  //     console.error(error)
-  //   }
-  // }
 
   // Запрос открыток с сервера
   React.useEffect(() => {
