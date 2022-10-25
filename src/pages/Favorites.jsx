@@ -28,7 +28,9 @@ const Favorites = ({
         />
         <h3 className="page__list-item-title">{item.title}</h3>
         <div className="page__list-item-price-block">
-          <p className="page__list-item-price-block-cost">{item.price} руб.</p>
+          <p className="page__list-item-price-block-cost">
+            {Number(item.price) > 0 ? `${item.price} руб.` : "Бесплатно"}
+          </p>
           <button className="btn__buy btn__buy--store">Купить</button>
         </div>
       </div>

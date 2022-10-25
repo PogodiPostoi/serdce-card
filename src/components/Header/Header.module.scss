@@ -72,3 +72,23 @@
 
     border: 1px solid #f0f0f0;
 }
+
+@media (max-width: 767px) {
+
+    .header {
+        padding: 1rem;
+        
+        .headerLogo {
+            padding-right: .5rem;
+
+            .headerLogoImg {
+                width: 40px;
+                height: 40px;
+            }
+
+            .headerLogoContent {
+                display: none;
+            }
+        }
+    }
+}

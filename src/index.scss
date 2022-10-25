@@ -17,22 +17,22 @@ html {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 2.29rem;
     font-weight: 700;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 1.72rem;
     font-weight: 700;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 1.43rem;
     font-weight: 700;
 }
 
 button {
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 body {
@@ -68,7 +68,7 @@ body {
                 min-width: 20%;
 
                 .store__categories-title {
-                    padding: 20px 0;
+                    padding: 1.43rem 0;
                 }
 
                 .store__categories-content {
@@ -123,7 +123,7 @@ body {
             }
     
             .page__list {
-                padding: 30px;
+                padding: 2.14rem;
 
                 display: flex;
                 flex-direction: row;
@@ -159,7 +159,7 @@ body {
                     }
 
                     .page__list-item-title {
-                        font-size: 16px;
+                        font-size: 1.14rem;
                     }
 
                     .page__list-item-price-block {
@@ -190,7 +190,7 @@ body {
     .search-block {
         height: 50px;
         width: 300px;
-        padding: 0px 18px;
+        padding: 0px 1.29rem;
         position: relative;
     
         border: 1px solid #e4e4e4;
@@ -206,7 +206,7 @@ body {
         }
 
         input {
-            padding: 0 15px;
+            padding: 0 1.1rem;
             min-width: 230px;
 
             &::placeholder {
@@ -266,5 +266,52 @@ body {
         visibility: hidden;
         transition: opacity 0.1s ease-in-out;
 
+    }
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 12px;
+    }
+
+    .app {
+        .page {
+            padding: 1.5rem;
+
+            .page__body {
+                flex-direction: column;
+    
+                .page__list {
+                    gap: 3rem;
+
+                    justify-content: center;
+                    
+                    .page__list-item {
+                        .page__list-item-favorite {
+                            position: absolute;
+    
+                            top: 14px;
+                            left: 3px;
+                        }
+
+                        .page__list-item-price-block {
+                            width: 90%;
+                            margin-bottom: 10px;
+
+                            gap: 1rem;
+    
+                            .page__list-item-price-block-cost {
+                                font-size: 1.14rem;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn__buy--store {
+            padding: .75rem 1rem;
+        }
     }
 }
