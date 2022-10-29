@@ -84,12 +84,12 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
     .storeCard {
         // Исходные размеры:
         // min-width: 330px;
         // min-height: 300px;
-        min-width: 297px; // На 0.9 умножаем 
+        min-width: 290px; // На 0.9 умножаем 
         min-height: 270px;
         padding-left: 1.43rem;
 
@@ -110,4 +110,8 @@
             top: 31px;
         }
     }
+}
+
+@media (max-width: 767px) {
+    
 }
