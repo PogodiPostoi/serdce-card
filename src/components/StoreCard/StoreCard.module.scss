@@ -89,21 +89,25 @@
         // Исходные размеры:
         // min-width: 330px;
         // min-height: 300px;
-        min-width: 231px; // На 0.7 умножаем 
-        min-height: 210px;
+        min-width: 297px; // На 0.9 умножаем 
+        min-height: 270px;
         padding-left: 1.43rem;
 
         .storeCardFront {
-            width: 126px;
-            height: 161px;
+            // width: 180px;
+            // height: 230px;
+            width: 162px;
+            height: 207px;
         }
 
         .storeCardBack {
-            width: 126px;
-            height: 161px;
+            width: 162px;
+            height: 207px;
 
-            left: 77px;
-            top: 24px;
+            // left: 110px;
+            // top: 35px;
+            left: 99px;
+            top: 31px;
         }
     }
 }

@@ -12,8 +12,6 @@ function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite
     setToFavorite(!toFavorite);
   };
 
-  console.log(toFavorite)
-
   const renderStoreCard = () => {
     switch (itemProps.card_type) {
       case 1:
