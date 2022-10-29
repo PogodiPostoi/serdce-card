@@ -98,3 +98,39 @@
         font-size: 18px;
     }
 }
+
+@media (max-width: 1599px) {
+
+}
+
+@media (max-width: 1023px) {
+    .customCard {
+        .customCardFlipper {
+            // width: 360px;
+            // height: 460px;
+            width: 288px;
+            height: 368px;
+
+            .customCardFrontImg, .customCardBackImg {
+                width: 288px;
+                height: 368px;
+            }
+        }
+    }
+}
+
+@media (max-width: 490px) {
+    .customCard {
+        .customCardFlipper {
+            // width: 360px;
+            // height: 460px;
+            width: 252px;
+            height: 322px;
+
+            .customCardFrontImg, .customCardBackImg {
+                width: 252px;
+                height: 322px;
+            }
+        }
+    }
+}

@@ -65,7 +65,7 @@ function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite
   return (
     <div
       className={styles.storeCard}
-      // onClick={() => onToggleCardDemo(itemProps.id)}
+      onClick={() => onToggleCardDemo(itemProps.id)}
     >
       {renderStoreCard()}
     </div>

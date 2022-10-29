@@ -11,12 +11,12 @@
 
     .storeCardDemoBody {
         min-width: 40%;
-        min-height: 70%;
+        min-height: 60%;
         padding: 5rem 2rem;
 
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         gap: 1.5rem;
 
@@ -53,11 +53,52 @@
             gap: 15rem;
 
             .storeCardDemoCost {
-                font-size: 20px;
+                font-size: 1.43rem;
                 font-weight: 700;
             }
         }
     }
 
     
+}
+
+@media (max-width: 1599px) {
+
+}
+
+@media (max-width: 1279px) {
+    .storeCardDemo {
+        .storeCardDemoBody {
+            min-width: 65%;
+            min-height: 50%;
+
+            .storeCardDemoPriceBlock {
+                align-items: center;
+                gap: 7rem;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 767px) {
+    .storeCardDemo {
+        .storeCardDemoBody {
+            min-width: 90%;
+            min-height: 50%;
+
+            .storeCardDemoClosebtn {
+                width: 40px;
+                height: 40px;
+    
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .storeCardDemoPriceBlock {
+                align-items: center;
+                gap: 5rem;
+            }
+        }
+    }
 }
