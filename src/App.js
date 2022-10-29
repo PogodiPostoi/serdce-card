@@ -15,6 +15,7 @@ function App() {
   const onToggleCardDemo = (id) => {
     setCardDemoOpened(!cardDemoOpened);
     setDemoCardId(id);
+    document.body.classList.toggle("no-scroll")
   };
 
   const onSetFavorites = async (obj) => {
