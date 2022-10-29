@@ -26,25 +26,30 @@ function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite
                   onClick={onChangeIsFavorite}
                 />
             }
-            <div className={styles.storeCardFront}>
-              <img
-                className={styles.storeCardFrontImg}
-                src={itemProps.front_img}
-                alt=""
-              />
-              <img
-                className={styles.storeCardSwitchBtn}
-                src="./img/switch.svg"
-                alt="switch"
-              />
-            </div>
-            <div className={styles.storeCardBack}>
-              <p className={styles.storeCardBackText}>{itemProps.back_text}</p>
-              <img
-                className={styles.storeCardBackImg}
-                src={itemProps.back_img}
-                alt=""
-              />
+            <div className={styles.storeCardClickBlock}
+              onClick={() => onToggleCardDemo(itemProps.id)}
+            >
+              <div className={styles.storeCardFront}
+              >
+                <img
+                  className={styles.storeCardFrontImg}
+                  src={itemProps.front_img}
+                  alt=""
+                />
+                <img
+                  className={styles.storeCardSwitchBtn}
+                  src="./img/switch.svg"
+                  alt="switch"
+                />
+              </div>
+              <div className={styles.storeCardBack}>
+                <p className={styles.storeCardBackText}>{itemProps.back_text}</p>
+                <img
+                  className={styles.storeCardBackImg}
+                  src={itemProps.back_img}
+                  alt=""
+                />
+              </div>
             </div>
           </>
         );
@@ -65,7 +70,7 @@ function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite
   return (
     <div
       className={styles.storeCard}
-      onClick={() => onToggleCardDemo(itemProps.id)}
+      
     >
       {renderStoreCard()}
     </div>
