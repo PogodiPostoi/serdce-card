@@ -15,10 +15,10 @@ const Header = () => {
                     </div>
                 </Link>
                 <div className={styles.headerBar}>
-                    <div className={styles.headerBarCart}>
+                    {/* <div className={styles.headerBarCart}>
                         <img src="./img/header/cart.svg" alt="cart" />
                         <p className={styles.headerBarCartText}>258 руб.</p>
-                    </div>
+                    </div> */}
                     <Link to={"/favorites"}>
                         <img className={styles.headerBarFavorite} src="./img/header/favorite.svg" alt="favorite" />
                     </Link>
