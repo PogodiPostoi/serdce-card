@@ -10,35 +10,40 @@ const Store = ({
   cardDemoOpened,
   onSetFavorites,
   favoriteListItems,
-  isItemFavorited
+  isItemFavorited,
 }) => {
   // Кнопки фильтрации
   const filterButtons = [
     {
       title: "Все открытки",
       value: "",
-      img: "./img/filterButtons/lightBulb.svg"
+      img: "./img/filterButtons/lightBulb.svg",
     },
     {
       title: "На день рождения",
       value: "На_день_рождения",
-      img: "./img/filterButtons/wrappedGift.svg"
+      img: "./img/filterButtons/wrappedGift.svg",
     },
     {
       title: "Второй половинке",
       value: "Второй_половинке",
-      img: "./img/filterButtons/sparklingHeart.svg"
+      img: "./img/filterButtons/sparklingHeart.svg",
     },
   ];
 
   // Блок хуков и функций к ним
   const [searchValue, setSearchValue] = React.useState("");
   const [activeFilter, setActiveFilter] = React.useState("");
+  const [isFilterListOpened, setIsFilterListOpened] = React.useState(false);
 
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
     setActiveFilter(event.target.value);
   };
+
+  const onToggleFilterOpened = () => {
+    setIsFilterListOpened(!isFilterListOpened)
+  }
 
   // Обрабатываемый массив
   const cardDemoData = CardListItems.find((i) => i.id === demoCardId);
@@ -48,7 +53,6 @@ const Store = ({
 
   // Рендер открыток
   const cardList = filteredItems.map((item, i) => {
-
     return (
       <div className="page__list-item" key={i}>
         <StoreCard
@@ -56,7 +60,9 @@ const Store = ({
           itemProps={item}
           onToggleCardDemo={onToggleCardDemo}
           onSetFavorites={onSetFavorites}
-          isFavorite={favoriteListItems.some(obj => Number(obj.parentId) === Number(item.id))}
+          isFavorite={favoriteListItems.some(
+            (obj) => Number(obj.parentId) === Number(item.id)
+          )}
           isItemFavorited={isItemFavorited}
         />
         <h3 className="page__list-item-title">{item.title}</h3>
@@ -127,8 +133,29 @@ const Store = ({
       </div>
       <div className="page__body">
         <aside className="store__categories">
-          <h3 className="store__categories-title">Категории</h3>
-          <div className="store__categories-content">{buttonList}</div>
+          <div className="store__categories-pc">
+            <h3 className="store__categories-title">Категории</h3>
+            <div className="store__categories-content">{buttonList}</div>
+          </div>
+          <div className="store__categories-mobile">
+            <div 
+              className="store__categories-mobile-dropdown"
+              onClick={() => onToggleFilterOpened()}
+            >
+              <h3 className="store__categories-title">Категории</h3>
+              <img
+                src={
+                  isFilterListOpened
+                    ? "./img/filterButtons/arrowDropUp.svg"
+                    : "./img/filterButtons/arrowDropDown.svg"
+                }
+                alt="dropdown icon"
+              />
+            </div>
+            {isFilterListOpened && (
+              <div className="store__categories-content">{buttonList}</div>
+            )}
+          </div>
         </aside>
         <main className="page__list">{cardList}</main>
       </div>
