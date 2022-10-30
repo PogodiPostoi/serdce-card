@@ -42,6 +42,8 @@ body {
 
 .no-scroll {
     overflow: hidden;
+
+    // TODO: https://www.npmjs.com/package/body-scroll-lock. Поменять на <- для поддержки блокировки скролла на мобилках
 }
 
 .app {
@@ -85,6 +87,10 @@ body {
                         min-width: 220px;
                         padding: 1rem 1rem;
 
+                        display: flex;
+                        align-items: center;
+                        gap: .7rem;
+
                         background-color: #fff;
                         border: 1px solid #d3d3d3;
                         border-bottom: none;
@@ -92,6 +98,11 @@ body {
                         text-align: left;
 
                         cursor: pointer;
+
+                        img {
+                            width: 1.43rem;
+                            height: 1.43rem;
+                        }
                         
                         input {
                             display: none;
@@ -323,8 +334,15 @@ body {
         font-size: 12px;
     }
 
+    body {
+        padding: 0 1.428rem 2rem;
+    }
+
     .app {
+        border-radius: 0 0 1.428rem 1.428rem;
+        
         .page {
+            
             .page__body {    
                 .page__list {
                     justify-content: center;
