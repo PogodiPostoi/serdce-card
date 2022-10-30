@@ -20,7 +20,7 @@ const Header = () => {
                         <p className={styles.headerBarCartText}>258 руб.</p>
                     </div> */}
                     <Link to={"/favorites"}>
-                        <img className={styles.headerBarFavorite} src="./img/header/favorite.svg" alt="favorite" />
+                        <img className={styles.headerBarFavorite} src="./img/liked.svg" alt="favorite" />
                     </Link>
                     {/* <img className={styles.headerBarProfile} src="./img/header/profile.svg" alt="profile" /> */}
                 </div>
