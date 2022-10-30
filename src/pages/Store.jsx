@@ -17,14 +17,17 @@ const Store = ({
     {
       title: "Все открытки",
       value: "",
+      img: "./img/filterButtons/lightBulb.svg"
     },
     {
       title: "На день рождения",
       value: "На_день_рождения",
+      img: "./img/filterButtons/wrappedGift.svg"
     },
     {
       title: "Второй половинке",
       value: "Второй_половинке",
+      img: "./img/filterButtons/sparklingHeart.svg"
     },
   ];
 
@@ -78,6 +81,7 @@ const Store = ({
             : "store__categories-button"
         }
       >
+        <img className="" src={item.img} alt="" />
         <input
           type="radio"
           name="card_type"
