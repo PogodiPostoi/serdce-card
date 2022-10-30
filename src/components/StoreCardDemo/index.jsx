@@ -17,6 +17,9 @@ const StoreCardDemo = ({ onToggleCardDemo, cardDemoData, cardDemoOpened }) => {
             alt="close"
             onClick={() => onToggleCardDemo("")}
           />
+          <span className={styles.storeCardDemoBodyHint}>
+            Нажми, чтобы перевернуть
+          </span>
           <CustomCard customCardData={cardDemoData} />
           <h3 className={styles.storeCardDemoText}>{cardDemoData.title}</h3>
           <div className={styles.storeCardDemoPriceBlock}>
