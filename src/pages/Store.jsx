@@ -8,9 +8,7 @@ const Store = ({
   onToggleCardDemo,
   demoCardId,
   cardDemoOpened,
-  onSetFavorites,
-  favoriteListItems,
-  isItemFavorited,
+  onSetFavorites
 }) => {
   // Кнопки фильтрации
   const filterButtons = [
@@ -60,10 +58,7 @@ const Store = ({
           itemProps={item}
           onToggleCardDemo={onToggleCardDemo}
           onSetFavorites={onSetFavorites}
-          isFavorite={favoriteListItems.some(
-            (obj) => Number(obj.parentId) === Number(item.id)
-          )}
-          isItemFavorited={isItemFavorited}
+          isFavorite={item.is_favorite}
         />
         <h3 className="page__list-item-title">{item.title}</h3>
         <div className="page__list-item-price-block">

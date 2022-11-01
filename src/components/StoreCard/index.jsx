@@ -2,14 +2,18 @@ import React from "react";
 
 import styles from "./StoreCard.module.scss";
 
-function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite, isItemFavorited }) {
-
-  const obj = { parentId: id, ...itemProps };
+function StoreCard({
+  id,
+  itemProps,
+  onToggleCardDemo,
+  onSetFavorites,
+  isFavorite
+}) {
   const [toFavorite, setToFavorite] = React.useState(isFavorite);
 
   const onChangeIsFavorite = () => {
-    onSetFavorites(obj)
     setToFavorite(!toFavorite);
+    onSetFavorites(id, !toFavorite);
   };
 
   const renderStoreCard = () => {
@@ -17,20 +21,17 @@ function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite
       case 1:
         return (
           <>
-            {
-              onSetFavorites &&
-                <img
-                  className="page__list-item-favorite"
-                  src={toFavorite ? "./img/liked.svg" : "./img/unliked.png"}
-                  alt="favorite button"
-                  onClick={onChangeIsFavorite}
-                />
-            }
-            <div className={styles.storeCardClickBlock}
+            <img
+              className="page__list-item-favorite"
+              src={toFavorite ? "./img/liked.svg" : "./img/unliked.png"}
+              alt="favorite button"
+              onClick={onChangeIsFavorite}
+            />
+            <div
+              className={styles.storeCardClickBlock}
               onClick={() => onToggleCardDemo(itemProps.id)}
             >
-              <div className={styles.storeCardFront}
-              >
+              <div className={styles.storeCardFront}>
                 <img
                   className={styles.storeCardFrontImg}
                   src={itemProps.front_img}
@@ -43,7 +44,9 @@ function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite
                 />
               </div>
               <div className={styles.storeCardBack}>
-                <p className={styles.storeCardBackText}>{itemProps.back_text}</p>
+                <p className={styles.storeCardBackText}>
+                  {itemProps.back_text}
+                </p>
                 <img
                   className={styles.storeCardBackImg}
                   src={itemProps.back_img}
@@ -67,14 +70,7 @@ function StoreCard({ id, itemProps, onToggleCardDemo, onSetFavorites, isFavorite
     }
   };
 
-  return (
-    <div
-      className={styles.storeCard}
-      
-    >
-      {renderStoreCard()}
-    </div>
-  );
+  return <div className={styles.storeCard}>{renderStoreCard()}</div>;
 }
 
 export default StoreCard;

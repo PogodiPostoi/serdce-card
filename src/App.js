@@ -8,7 +8,6 @@ import Favorites from "./pages/Favorites";
 
 function App() {
   const [CardListItems, setCardListItems] = React.useState([]);
-  const [favoriteListItems, setFavoriteListItems] = React.useState([]);
   const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
   const [demoCardId, setDemoCardId] = React.useState("");
 
@@ -18,7 +17,7 @@ function App() {
     document.body.classList.toggle("no-scroll")
   };
 
-  const onSetFavorites = async (obj) => {
+ /*  const onSetFavorites = async (obj) => {
     try {
       const findFavoriteItem = favoriteListItems.find((item) => Number(item.parentId) === Number(obj.id));
       if (findFavoriteItem) {
@@ -45,12 +44,20 @@ function App() {
       alert("Не удалось добавить в фавориты");
       console.error(error);
     }
-  };
+  }; */
 
-  const isItemFavorited = (id) => {
-    return favoriteListItems.some(obj => Number(obj.parentId) === Number(id))
+  const onSetFavorites = async (id, fav) => {
+    try {
+      const body = {"is_favorite": fav}
+      CardListItems[id-1].is_favorite = fav
+      await axios.put(`https://634afa40d90b984a1e340df0.mockapi.io/cardListItems/${id}`, body);
+      
+    } catch (error) {
+      alert("Не удалось добавить в фавориты");
+      console.error(error);
+    }
   }
-
+  
   // Запрос открыток с сервера
   React.useEffect(() => {
     async function fetchData() {
@@ -58,12 +65,12 @@ function App() {
         const cardListResponse = await axios.get(
           "https://634afa40d90b984a1e340df0.mockapi.io/cardListItems"
         );
-        const favoriteListResponse = await axios.get(
+        /* const favoriteListResponse = await axios.get(
           "https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems"
-        );
+        ); */
 
         setCardListItems(cardListResponse.data);
-        setFavoriteListItems(favoriteListResponse.data);
+        /* setFavoriteListItems(favoriteListResponse.data); */
       } catch (error) {
         alert("Ошибка при запросе данных :(");
         console.error(error);
@@ -88,8 +95,6 @@ function App() {
               demoCardId={demoCardId}
               cardDemoOpened={cardDemoOpened}
               onSetFavorites={onSetFavorites}
-              favoriteListItems={favoriteListItems}
-              isItemFavorited={isItemFavorited}
             />
           ),
           // Для случаев, когда нужно добавить страницу errorPage - errorElement: <Компонент />
@@ -99,11 +104,9 @@ function App() {
           element: (
             <Favorites
               CardListItems={CardListItems}
-              favoriteListItems={favoriteListItems}
               onToggleCardDemo={onToggleCardDemo}
               demoCardId={demoCardId}
               cardDemoOpened={cardDemoOpened}
-              isItemFavorited={isItemFavorited}
               onSetFavorites={onSetFavorites}
             />
           ),
