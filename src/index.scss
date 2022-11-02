@@ -295,7 +295,23 @@ body {
         .page {
             .page__body {    
                 .page__list {
-                    justify-content: space-evenly;
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1550px) {
+    .app {
+        .page {
+            .page__body {    
+                .page__list {
+                    gap: 24%;
+
+                    .page__list-item {
+                        padding: 1.5rem 0;
+                    }
                 }
             }
         }
@@ -310,12 +326,43 @@ body {
             .page__body {
                 flex-direction: column;
 
+                .store__categories {
+                    .store__categories-mobile {
+                        display: block;
+
+                        .store__categories-mobile-dropdown {
+                            padding: 0 0 0 1rem;
+                            margin-bottom: .5rem;
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            border: 1px solid #d3d3d3;
+                            border-radius: .5rem;
+
+                            img {
+                                width: 40px;
+                                height: 40px;
+
+                                opacity: .6;
+                            }
+                        }
+                    }
+
+                    .store__categories-pc {
+                        display: none;
+                    }
+                }
+
                 .page__list {
                     gap: 3rem;
 
-                    justify-content: space-evenly;
+                    justify-content: flex-start;
 
                     .page__list-item {
+                        margin: 0 auto;
+
                         .page__list-item-favorite {
                             position: absolute;
     
@@ -349,34 +396,7 @@ body {
         .page {
             
             .page__body { 
-                .store__categories {
-                    .store__categories-mobile {
-                        display: block;
-
-                        .store__categories-mobile-dropdown {
-                            padding: 0 0 0 1rem;
-                            margin-bottom: .5rem;
-
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-
-                            border: 1px solid #d3d3d3;
-                            border-radius: .5rem;
-
-                            img {
-                                width: 40px;
-                                height: 40px;
-
-                                opacity: .6;
-                            }
-                        }
-                    }
-
-                    .store__categories-pc {
-                        display: none;
-                    }
-                }
+                
                 .page__list {
                     justify-content: center;
                 }
