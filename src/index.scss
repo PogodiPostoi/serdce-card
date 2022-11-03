@@ -46,6 +46,10 @@ body {
     // TODO: https://www.npmjs.com/package/body-scroll-lock. Поменять на <- для поддержки блокировки скролла на мобилках
 }
 
+#root {
+    padding-bottom: 2rem;
+}
+
 .app {
     max-width: 1600px;
     height: auto;
