@@ -71,7 +71,7 @@ body {
             align-items: center;
         }
 
-        .page__body {
+        .page__body, .order__body {
             display: flex;
 
             .store__categories {
@@ -202,6 +202,46 @@ body {
                 }
             }
         }
+        
+        .order__body {
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+
+            .order__card-block {
+                .order__card-block-title {
+                    padding: 1rem 0;
+                }
+
+                .order__card-block-demo {
+
+                }
+            }
+
+            .order__customizing-block {
+                width: 400px;
+                padding: 1rem;
+
+                .order__customizing-block-from-title, 
+                .order__customizing-block-to-title {
+                    padding: 1rem 0;
+                }
+
+                .order__customizing-block-from {
+
+                    .order__customizing-block-from-title {
+
+                    }
+                }
+
+                .order__customizing-block-to {
+
+                    .order__customizing-block-to-title {
+
+                    }
+                }
+            }
+        }
 
     }
 
@@ -262,11 +302,15 @@ body {
 
         font-size: 1.14rem;
         font-weight: 700;
-        color: inherit;
+        color: #000;
 
         background-color: #ffdfb1;
         
         border-radius: 1rem;
+        
+        &:active {
+            background-color: #fccb86;
+        }
     }
     
     .btn__buy--store {

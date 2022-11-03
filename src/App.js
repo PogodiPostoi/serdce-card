@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Store from "./pages/Store";
 import Favorites from "./pages/Favorites";
+import Order from "./pages/Order";
 
 function App() {
   const [CardListItems, setCardListItems] = React.useState([]);
@@ -16,6 +17,12 @@ function App() {
     setDemoCardId(id);
     document.body.classList.toggle("no-scroll")
   };
+
+  const onClickOrder = (id) => {
+    setCardDemoOpened(false);
+    setDemoCardId(id);
+    document.body.classList.remove("no-scroll")
+  }
 
  /*  const onSetFavorites = async (obj) => {
     try {
@@ -80,6 +87,10 @@ function App() {
     fetchData();
   }, []);
 
+  // Обрабатываемый массив
+  const cardDemoData = CardListItems.find((i) => i.id === demoCardId);
+  console.log(cardDemoData)
+
   // Router
   const router = createBrowserRouter([
     {
@@ -92,9 +103,10 @@ function App() {
             <Store
               CardListItems={CardListItems}
               onToggleCardDemo={onToggleCardDemo}
-              demoCardId={demoCardId}
               cardDemoOpened={cardDemoOpened}
               onSetFavorites={onSetFavorites}
+              cardDemoData={cardDemoData}
+              onClickOrder={onClickOrder}
             />
           ),
           // Для случаев, когда нужно добавить страницу errorPage - errorElement: <Компонент />
@@ -105,14 +117,24 @@ function App() {
             <Favorites
               CardListItems={CardListItems}
               onToggleCardDemo={onToggleCardDemo}
-              demoCardId={demoCardId}
               cardDemoOpened={cardDemoOpened}
               onSetFavorites={onSetFavorites}
+              cardDemoData={cardDemoData}
+              onClickOrder={onClickOrder}
             />
           ),
         },
-      ],
-    },
+        {
+          path: "/order",
+          element: (
+            <Order
+            cardDemoData={cardDemoData}
+            onClickOrder={onClickOrder}
+            />
+          ),
+        }
+      ]
+    }
   ]);
 
   return (

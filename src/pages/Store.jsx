@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import StoreCard from "../components/StoreCard";
 import StoreCardDemo from "../components/StoreCardDemo";
@@ -6,9 +7,10 @@ import StoreCardDemo from "../components/StoreCardDemo";
 const Store = ({
   CardListItems,
   onToggleCardDemo,
-  demoCardId,
   cardDemoOpened,
-  onSetFavorites
+  onSetFavorites,
+  cardDemoData,
+  onClickOrder
 }) => {
   // Кнопки фильтрации
   const filterButtons = [
@@ -44,7 +46,6 @@ const Store = ({
   }
 
   // Обрабатываемый массив
-  const cardDemoData = CardListItems.find((i) => i.id === demoCardId);
   const filteredItems = CardListItems.filter((item) =>
     item.category.includes(searchValue)
   );
@@ -65,7 +66,9 @@ const Store = ({
           <p className="page__list-item-price-block-cost">
             {Number(item.price) > 0 ? `${item.price} руб.` : "Бесплатно"}
           </p>
-          <button className="btn__buy btn__buy--store">Подписать</button>
+          <Link to={"/order"} onClick={() => onClickOrder(item.id)}>
+            <button className="btn__buy btn__buy--store">Подписать</button>
+          </Link>
         </div>
       </div>
     );
@@ -101,6 +104,7 @@ const Store = ({
           onToggleCardDemo={onToggleCardDemo}
           cardDemoData={cardDemoData}
           cardDemoOpened={cardDemoOpened}
+          onClickOrder={onClickOrder}
         />
       )}
 
@@ -133,7 +137,7 @@ const Store = ({
             <div className="store__categories-content">{buttonList}</div>
           </div>
           <div className="store__categories-mobile">
-            <div 
+            <div
               className="store__categories-mobile-dropdown"
               onClick={() => onToggleFilterOpened()}
             >

@@ -1,14 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./StoreCardDemo.module.scss";
 
 import CustomCard from "../CustomCard";
 
-const StoreCardDemo = ({ onToggleCardDemo, cardDemoData, cardDemoOpened }) => {
+const StoreCardDemo = ({
+  onToggleCardDemo,
+  cardDemoData,
+  cardDemoOpened,
+  onClickOrder,
+}) => {
+  console.log(cardDemoData, 11)
+
   return (
-    <div
-      className={cardDemoOpened ? `bg--blur show` : `bg--blur hide`}
-    >
+    <div className={cardDemoOpened ? `bg--blur show` : `bg--blur hide`}>
       <div className={styles.storeCardDemo}>
         <div className={styles.storeCardDemoBody}>
           <img
@@ -28,7 +34,9 @@ const StoreCardDemo = ({ onToggleCardDemo, cardDemoData, cardDemoOpened }) => {
                 ? `${cardDemoData.price} руб.`
                 : "Бесплатно"}
             </p>
-            <button className="btn__buy">Подписать</button>
+            <Link to={"/order"} onClick={() => onClickOrder(cardDemoData.id)}>
+              <button className="btn__buy">Подписать</button>
+            </Link>
           </div>
         </div>
       </div>

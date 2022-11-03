@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import StoreCard from "../components/StoreCard";
 import StoreCardDemo from "../components/StoreCardDemo";
 
 const Favorites = ({
   onToggleCardDemo,
-  demoCardId,
   cardDemoOpened,
   onSetFavorites,
-  CardListItems
+  CardListItems,
+  cardDemoData,
+  onClickOrder
 }) => {
 
   // Рендер избранных открыток
@@ -27,15 +29,14 @@ const Favorites = ({
           <p className="page__list-item-price-block-cost">
             {Number(item.price) > 0 ? `${item.price} руб.` : "Бесплатно"}
           </p>
-          <button className="btn__buy btn__buy--store">Купить</button>
+          <Link to={"/order"} onClick={() => onClickOrder(item.id)}>
+            <button className="btn__buy btn__buy--store">Подписать</button>
+          </Link>
         </div>
       </div>
     );
   });
 
-
-  // Обрабатываемый массив
-  const cardDemoData = CardListItems.find((i) => i.id === demoCardId);
 
   return (
     <div className="page">
@@ -44,6 +45,7 @@ const Favorites = ({
           onToggleCardDemo={onToggleCardDemo}
           cardDemoData={cardDemoData}
           cardDemoOpened={cardDemoOpened}
+          onClickOrder={onClickOrder}
         />
       )}
 

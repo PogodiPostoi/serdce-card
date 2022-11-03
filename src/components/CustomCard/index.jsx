@@ -2,12 +2,17 @@ import React from "react";
 
 import styles from "./CustomCard.module.scss";
 
-function CustomCard({ customTextRecipient, customText, customTextSender, customCardData }) {
-  const [isFlipped, setFlipped] = React.useState(false)
+function CustomCard({
+  customTextRecipient,
+  customText,
+  customTextSender,
+  customCardData,
+}) {
+  const [isFlipped, setFlipped] = React.useState(false);
 
   return (
-    <div 
-      className={`${styles.customCard} ${isFlipped ? styles.isFlipped : ''}`}
+    <div
+      className={`${styles.customCard} ${isFlipped ? styles.isFlipped : ""}`}
       onClick={() => setFlipped(!isFlipped)}
     >
       <div className={styles.customCardFlipper}>
@@ -17,8 +22,11 @@ function CustomCard({ customTextRecipient, customText, customTextSender, customC
             src={customCardData.front_img}
             alt="thief card"
           />
-          <img className={styles.customCardSwitchBtn} src="./img/switch.svg" alt="switch" />
-
+          <img
+            className={styles.customCardSwitchBtn}
+            src="./img/switch.svg"
+            alt="switch"
+          />
         </div>
         <div className={styles.customCardBack}>
           <img
