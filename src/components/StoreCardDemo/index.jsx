@@ -23,7 +23,7 @@ const StoreCardDemo = ({
             alt="close"
             onClick={() => onToggleCardDemo("")}
           />
-          <span className={styles.storeCardDemoBodyHint}>
+          <span className="flipper-hint">
             Нажми, чтобы перевернуть
           </span>
           <CustomCard customCardData={cardDemoData} />
