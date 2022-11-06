@@ -204,6 +204,7 @@ body {
         }
         
         .checkout__body {
+            display: flex;
             gap: 1rem;
             justify-content: space-evenly;
             align-items: center;
