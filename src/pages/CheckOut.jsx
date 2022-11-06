@@ -3,31 +3,36 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import CustomCard from "../components/CustomCard";
+import RenderCard from "../components/RenderCard";
 
-const CheckOut = () => {
+const CheckOut = ({setIsLoading, isLoading}) => {
 
   const {cardId} = useParams()
 
-  const [checkOutCardData, setCheckOutCardData] = React.useState(cardId)
+  const [checkoutCardData, setCheckoutCardData] = React.useState(cardId)
 
 
     // Запрос на конкретную открытку для order
     React.useEffect(() => {
-      async function getCheckOutCard(cardId) {
+      async function getCheckoutCard(cardId) {
         try {
+          setIsLoading(true)
           const orderCardResponse = await axios.get(
             `https://634afa40d90b984a1e340df0.mockapi.io/cardListItems/${cardId}`
           );
   
-          setCheckOutCardData(orderCardResponse.data);
+          setCheckoutCardData(orderCardResponse.data);
+          setIsLoading(false)
         } catch (error) {
           alert("Ошибка при запросе данных :(");
           console.error(error);
         }
       }
   
-      getCheckOutCard(cardId)
-    }, [cardId]);
+      getCheckoutCard(cardId)
+    }, [cardId, setIsLoading]);
+
+    
 
   
   return (
@@ -38,8 +43,15 @@ const CheckOut = () => {
             <h2>Предпросмотр открытки</h2>
           </div>
           <div className="checkout__card-block-demo">
-            <span className="flipper-hint">Нажми, чтобы перевернуть</span>
-            <CustomCard customCardData={checkOutCardData} />
+            {/* <span className="flipper-hint">Нажми, чтобы перевернуть</span> */}
+            {
+              isLoading 
+              ? <RenderCard location={"demo"} />
+              : <>
+                  <CustomCard customCardData={checkoutCardData} />
+                  <h3 className="page__list-item-title">{checkoutCardData.title}</h3>
+                </>
+            }
           </div>
         </div>
         <div className="checkout__customizing-block">

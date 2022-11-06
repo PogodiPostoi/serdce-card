@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import RenderCard from "../components/RenderCard";
 import StoreCard from "../components/StoreCard";
 import StoreCardDemo from "../components/StoreCardDemo";
 
@@ -10,7 +11,8 @@ const Store = ({
   cardDemoOpened,
   onSetFavorites,
   cardDemoData,
-  onClickOrder
+  onClickOrder,
+  isLoading,
 }) => {
   // Кнопки фильтрации
   const filterButtons = [
@@ -42,37 +44,54 @@ const Store = ({
   };
 
   const onToggleFilterOpened = () => {
-    setIsFilterListOpened(!isFilterListOpened)
-  }
+    setIsFilterListOpened(!isFilterListOpened);
+  };
+
 
   // Обрабатываемый массив
-  const filteredItems = CardListItems.filter((item) =>
-    item.category.includes(searchValue)
-  );
-
+  const filteredItems = 
+    isLoading
+    ? Array(6).fill([])
+    : CardListItems.filter((item) =>
+        item.category.includes(searchValue)
+      );
   // Рендер открыток
   const cardList = filteredItems.map((item, i) => {
-    return (
-      <div className="page__list-item" key={i}>
-        <StoreCard
-          id={item.id}
-          itemProps={item}
-          onToggleCardDemo={onToggleCardDemo}
-          onSetFavorites={onSetFavorites}
-          isFavorite={item.is_favorite}
-        />
-        <h3 className="page__list-item-title">{item.title}</h3>
-        <div className="page__list-item-price-block">
-          <p className="page__list-item-price-block-cost">
-            {Number(item.price) > 0 ? `${item.price} руб.` : "Бесплатно"}
-          </p>
-          <Link to={`/checkout/${item.id}`} onClick={() => onClickOrder(item.id)}>
-            <button className="btn__buy btn__buy--store">Подписать</button>
-          </Link>
-        </div>
-      </div>
-    );
-  });
+        return (
+          <div className="page__list-item" key={i}>
+            {isLoading ? (
+              <RenderCard location={"list"} />
+            ) : (
+              <>
+                <StoreCard
+                  id={item.id}
+                  itemProps={item}
+                  onToggleCardDemo={onToggleCardDemo}
+                  onSetFavorites={onSetFavorites}
+                  isFavorite={item.is_favorite}
+                  isLoading={isLoading}
+                />
+                <h3 className="page__list-item-title">{item.title}</h3>
+                <div className="page__list-item-price-block">
+                  <p className="page__list-item-price-block-cost">
+                    {Number(item.price) > 0
+                      ? `${item.price} руб.`
+                      : "Бесплатно"}
+                  </p>
+                  <Link
+                    to={`/checkout/${item.id}`}
+                    onClick={() => onClickOrder(item.id)}
+                  >
+                    <button className="btn__buy btn__buy--store">
+                      Подписать
+                    </button>
+                  </Link>
+                </div>
+              </>
+            )}
+          </div>
+        );
+      });
 
   // Рендер кнопок фильтрации
   const buttonList = filterButtons.map((item) => {
@@ -156,7 +175,9 @@ const Store = ({
             )}
           </div>
         </aside>
-        <main className="page__list">{cardList}</main>
+        <main className="page__list">
+          {cardList}
+        </main>
       </div>
     </div>
   );

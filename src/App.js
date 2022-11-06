@@ -11,6 +11,7 @@ function App() {
   const [CardListItems, setCardListItems] = React.useState([]);
   const [cardDemoOpened, setCardDemoOpened] = React.useState(false);
   const [demoCardId, setDemoCardId] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(true);
 
   const onToggleCardDemo = (id) => {
     setCardDemoOpened(!cardDemoOpened);
@@ -69,11 +70,13 @@ function App() {
   React.useEffect(() => {
     async function fetchData() {
       try {
+        setIsLoading(true);
         const cardListResponse = await axios.get(
           "https://634afa40d90b984a1e340df0.mockapi.io/cardListItems"
         );
 
         setCardListItems(cardListResponse.data);
+        setIsLoading(false);
       } catch (error) {
         alert("Ошибка при запросе данных :(");
         console.error(error);
@@ -102,6 +105,7 @@ function App() {
               onSetFavorites={onSetFavorites}
               cardDemoData={cardDemoData}
               onClickOrder={onClickOrder}
+              isLoading={isLoading}
             />
           ),
           // Для случаев, когда нужно добавить страницу errorPage - errorElement: <Компонент />
@@ -116,13 +120,17 @@ function App() {
               onSetFavorites={onSetFavorites}
               cardDemoData={cardDemoData}
               onClickOrder={onClickOrder}
+              isLoading={isLoading}
             />
           ),
         },
         {
           path: `/checkout/:cardId`,
           element: (
-            <CheckOut/>
+            <CheckOut
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
           ),
         }
       ]
