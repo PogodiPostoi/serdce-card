@@ -24,7 +24,7 @@ function CustomCard({
           />
           <img
             className={styles.customCardSwitchBtn}
-            src="./img/switch.svg"
+            src="/img/switch.svg"
             alt="switch"
           />
         </div>
@@ -47,7 +47,7 @@ function CustomCard({
               {customTextSender}
             </p>
           )}
-          {/* <img className={styles.customCardSwitchBtn} src="./img/switch.svg" alt="switch" /> */}
+          {/* <img className={styles.customCardSwitchBtn} src="/img/switch.svg" alt="switch" /> */}
         </div>
       </div>
     </div>

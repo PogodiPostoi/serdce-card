@@ -17,17 +17,17 @@ const Store = ({
     {
       title: "Все открытки",
       value: "",
-      img: "./img/filterButtons/lightBulb.svg",
+      img: ".img/filterButtons/lightBulb.svg",
     },
     {
       title: "На день рождения",
       value: "На_день_рождения",
-      img: "./img/filterButtons/wrappedGift.svg",
+      img: "/img/filterButtons/wrappedGift.svg",
     },
     {
       title: "Второй половинке",
       value: "Второй_половинке",
-      img: "./img/filterButtons/sparklingHeart.svg",
+      img: "/img/filterButtons/sparklingHeart.svg",
     },
   ];
 
@@ -66,7 +66,7 @@ const Store = ({
           <p className="page__list-item-price-block-cost">
             {Number(item.price) > 0 ? `${item.price} руб.` : "Бесплатно"}
           </p>
-          <Link to={"/order"} onClick={() => onClickOrder(item.id)}>
+          <Link to={`/checkout/${item.id}`} onClick={() => onClickOrder(item.id)}>
             <button className="btn__buy btn__buy--store">Подписать</button>
           </Link>
         </div>
@@ -113,7 +113,7 @@ const Store = ({
         {/* Если понадобится поиск - раскомментировать и filteredItems поправить
 
         <div className="search-block">
-                    <img className="search-block__lens" src="./img/search-icon.svg" alt="search" />
+                    <img className="search-block__lens" src="/img/search-icon.svg" alt="search" />
                     <input
                         onChange={onChangeSearchInput}
                         value={searchValue}
@@ -145,8 +145,8 @@ const Store = ({
               <img
                 src={
                   isFilterListOpened
-                    ? "./img/filterButtons/arrowDropUp.svg"
-                    : "./img/filterButtons/arrowDropDown.svg"
+                    ? "/img/filterButtons/arrowDropUp.svg"
+                    : "/img/filterButtons/arrowDropDown.svg"
                 }
                 alt="dropdown icon"
               />

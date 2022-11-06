@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Store from "./pages/Store";
 import Favorites from "./pages/Favorites";
-import Order from "./pages/Order";
+import CheckOut from "./pages/CheckOut";
 
 function App() {
   const [CardListItems, setCardListItems] = React.useState([]);
@@ -72,12 +72,8 @@ function App() {
         const cardListResponse = await axios.get(
           "https://634afa40d90b984a1e340df0.mockapi.io/cardListItems"
         );
-        /* const favoriteListResponse = await axios.get(
-          "https://634afa40d90b984a1e340df0.mockapi.io/favoriteListItems"
-        ); */
 
         setCardListItems(cardListResponse.data);
-        /* setFavoriteListItems(favoriteListResponse.data); */
       } catch (error) {
         alert("Ошибка при запросе данных :(");
         console.error(error);
@@ -87,9 +83,8 @@ function App() {
     fetchData();
   }, []);
 
-  // Обрабатываемый массив
+  // Обрабатываемый массив для демо
   const cardDemoData = CardListItems.find((i) => i.id === demoCardId);
-  console.log(cardDemoData)
 
   // Router
   const router = createBrowserRouter([
@@ -125,12 +120,9 @@ function App() {
           ),
         },
         {
-          path: "/order",
+          path: `/checkout/:cardId`,
           element: (
-            <Order
-            cardDemoData={cardDemoData}
-            onClickOrder={onClickOrder}
-            />
+            <CheckOut/>
           ),
         }
       ]

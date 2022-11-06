@@ -29,7 +29,7 @@ const Favorites = ({
           <p className="page__list-item-price-block-cost">
             {Number(item.price) > 0 ? `${item.price} руб.` : "Бесплатно"}
           </p>
-          <Link to={"/order"} onClick={() => onClickOrder(item.id)}>
+          <Link to={`/checkout/${item.id}`} onClick={() => onClickOrder(item.id)}>
             <button className="btn__buy btn__buy--store">Подписать</button>
           </Link>
         </div>

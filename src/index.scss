@@ -203,17 +203,17 @@ body {
             }
         }
         
-        .order__body {
+        .checkout__body {
             gap: 1rem;
             justify-content: space-evenly;
             align-items: center;
 
-            .order__card-block {
-                .order__card-block-title {
+            .checkout__card-block {
+                .checkout__card-block-title {
                     padding: 1rem 3rem;
                 }
 
-                .order__card-block-demo {
+                .checkout__card-block-demo {
                     padding: 2rem;
 
                     display: flex;
@@ -225,7 +225,7 @@ body {
                 }
             }
 
-            .order__customizing-block {
+            .checkout__customizing-block {
                 width: 400px;
                 padding: 1rem;
                 
@@ -233,21 +233,21 @@ body {
                 flex-direction: column;
                 gap: 1rem;
 
-                .order__customizing-block-from-title, 
-                .order__customizing-block-to-title {
+                .checkout__customizing-block-from-title, 
+                .checkout__customizing-block-to-title {
                     padding: .75rem 0;
                 }
 
-                .order__customizing-block-title {
+                .checkout__customizing-block-title {
                     padding: .75rem 0;
                 }
 
-                .order__customizing-block-from {
+                .checkout__customizing-block-from {
 
                     
                 }
 
-                .order__customizing-block-to {
+                .checkout__customizing-block-to {
                 }
             }
         }

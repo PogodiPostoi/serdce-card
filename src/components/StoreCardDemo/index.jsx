@@ -11,7 +11,6 @@ const StoreCardDemo = ({
   cardDemoOpened,
   onClickOrder,
 }) => {
-  console.log(cardDemoData, 11)
 
   return (
     <div className={cardDemoOpened ? `bg--blur show` : `bg--blur hide`}>
@@ -19,7 +18,7 @@ const StoreCardDemo = ({
         <div className={styles.storeCardDemoBody}>
           <img
             className={styles.storeCardDemoClosebtn}
-            src="./img/close.svg"
+            src="/img/close.svg"
             alt="close"
             onClick={() => onToggleCardDemo("")}
           />
@@ -34,7 +33,7 @@ const StoreCardDemo = ({
                 ? `${cardDemoData.price} руб.`
                 : "Бесплатно"}
             </p>
-            <Link to={"/order"} onClick={() => onClickOrder(cardDemoData.id)}>
+            <Link to={`/checkout/${cardDemoData.id}`} onClick={() => onClickOrder(cardDemoData.id)}>
               <button className="btn__buy">Подписать</button>
             </Link>
           </div>
