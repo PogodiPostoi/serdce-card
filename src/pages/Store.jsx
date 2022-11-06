@@ -17,7 +17,7 @@ const Store = ({
     {
       title: "Все открытки",
       value: "",
-      img: ".img/filterButtons/lightBulb.svg",
+      img: "/img/filterButtons/lightBulb.svg",
     },
     {
       title: "На день рождения",
