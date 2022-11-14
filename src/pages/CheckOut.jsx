@@ -71,6 +71,7 @@ const CheckOut = ({ setIsLoading, isLoading }) => {
             )}
           </div>
         </div>
+        <div className="line__mobile" style={{width: 300}}></div>
         <div className="checkout__customizing-block">
           <span className="flipper-hint">
             Подпись отобразится на обратной стороне

@@ -55,18 +55,19 @@
             .customCardBackTextRecipient {
                 margin-top: 50px;
                 
-                font-size: 20px;
+                font-size: 1.43rem;
                 font-weight: normal;
             }
 
             .customCardBackTextSender {
-                font-size: 14px;
+                font-size: 1rem;
                 font-weight: normal;
             }
 
             .customCardBackText {
                 padding: 0 20px;
 
+                font-size: 1.14rem;
                 font-weight: normal;
             }
         }
@@ -145,6 +146,28 @@
             .customCardFrontImg, .customCardBackImg {
                 width: 252px;
                 height: 322px;
+            }
+
+            .customCardBack {
+                .customCardBackTextRecipient {
+                    margin-top: 20px;
+                    
+                    font-size: 1.43rem;
+                    font-weight: normal;
+                }
+    
+                .customCardBackTextSender {
+                    font-size: 1rem;
+                    font-weight: normal;
+                }
+    
+                .customCardBackText {
+                    margin-top: 0px;
+                    padding: 0 5px;
+    
+                    font-size: 1.14rem;
+                    font-weight: normal;
+                }
             }
         }
     }

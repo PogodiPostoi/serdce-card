@@ -25,7 +25,7 @@ const Header = () => {
                     {/* <img className={styles.headerBarProfile} src="./img/header/profile.svg" alt="profile" /> */}
                 </div>
             </div>
-            <div className={styles.line}></div>
+            <div className="line"></div>
             <Outlet />
         </>
     )
