@@ -34,17 +34,29 @@ function CustomCard({
             src={customCardData.back_img}
             alt="backside"
           />
-          {customTextRecipient && (
+          {customTextRecipient ? (
             <p className={styles.customCardBackTextRecipient}>
               {customTextRecipient}
             </p>
+          ) : (
+            <p className={styles.customCardBackTextRecipient}>
+              Кому
+            </p>
           )}
-          {customText && (
+          {customText ? (
             <p className={styles.customCardBackText}>{customText}</p>
+          ) : (
+            <p className={styles.customCardBackText}>
+              Ваше пожелание
+            </p>
           )}
-          {customTextSender && (
+          {customTextSender ? (
             <p className={styles.customCardBackTextSender}>
               {customTextSender}
+            </p>
+          ) : (
+            <p className={styles.customCardBackTextSender}>
+              От кого
             </p>
           )}
           {/* <img className={styles.customCardSwitchBtn} src="/img/switch.svg" alt="switch" /> */}

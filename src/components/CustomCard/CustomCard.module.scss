@@ -26,7 +26,7 @@
 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
 
             border-radius: 15px;
@@ -39,15 +39,24 @@
         }
     
         .customCardBack {
+            position: relative;
+
             transform: rotateY(-180deg);
             background-color: #fff;
             filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.08));
+
+            .customCardBackImg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
 
             .customCardBackTextRecipient {
                 margin-top: 50px;
                 
                 font-size: 20px;
-                font-weight: bold;
+                font-weight: normal;
             }
 
             .customCardBackTextSender {
@@ -56,6 +65,8 @@
             }
 
             .customCardBackText {
+                padding: 0 20px;
+
                 font-weight: normal;
             }
         }
@@ -96,6 +107,10 @@
 
     .customCardBackText {
         font-size: 18px;
+    }
+
+    .customCardBackTextSender {
+        margin-top: 0;
     }
 }
 
