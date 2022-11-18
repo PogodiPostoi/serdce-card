@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import html2canvas from "html2canvas";
 
 import CustomCard from "../components/CustomCard";
 import RenderCard from "../components/RenderCard";
+import ExportCard from "../components/ExportCard";
 
 const CheckOut = ({ setIsLoading, isLoading }) => {
   const { cardId } = useParams();
@@ -12,6 +14,7 @@ const CheckOut = ({ setIsLoading, isLoading }) => {
   const [recipient, setRecipient] = React.useState("");
   const [sender, setSender] = React.useState("");
   const [text, setText] = React.useState("");
+  const [exportCardOpened, setExportCardOpened] = React.useState("");
 
   // Запрос на конкретную открытку для order
   React.useEffect(() => {
@@ -33,6 +36,28 @@ const CheckOut = ({ setIsLoading, isLoading }) => {
     getCheckoutCard(cardId);
   }, [cardId, setIsLoading]);
 
+  // Для html2canvas
+  const exportRef = React.useRef();
+  const exportAsImage = async (element, imageFileName) => {
+    const canvas = await html2canvas(element);
+    const image = canvas.toDataURL("image/png", 1.0);
+    downloadImage(image, imageFileName);
+  };
+
+  const downloadImage = (blob, fileName) => {
+    const fakeLink = window.document.createElement("a");
+    fakeLink.style = "display:none;";
+    fakeLink.download = fileName;
+
+    fakeLink.href = blob;
+
+    document.body.appendChild(fakeLink);
+    fakeLink.click();
+    document.body.removeChild(fakeLink);
+
+    fakeLink.remove();
+  };
+
   const onChangeSender = (event) => {
     setSender(event.target.value);
   };
@@ -45,8 +70,41 @@ const CheckOut = ({ setIsLoading, isLoading }) => {
     setText(event.target.value);
   };
 
+  const onToggleExportCard = () => {
+    setExportCardOpened(!exportCardOpened)
+  }
+
   return (
     <div className="page">
+      {exportCardOpened && (
+        <div className={exportCardOpened ? `bg--blur show` : `bg--blur hide`}>
+          <div className="export__popup">
+            <div className="export__popup-content">
+              <img
+                className="export__popup-close-btn"
+                src="/img/close.svg"
+                alt="close"
+                onClick={() => onToggleExportCard()}
+              />
+              <div className="export__popup-content-img" ref={exportRef}>
+                <ExportCard
+                  customCardData={checkoutCardData}
+                  customTextRecipient={recipient}
+                  customText={text}
+                  customTextSender={sender}
+                />
+              </div>
+              <button
+                className="export__popup-content-btn btn__buy"
+                onClick={() => exportAsImage(exportRef.current, "serdce card")}
+              >
+                Скачать
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="checkout__body">
         <div className="checkout__card-block">
           <div className="checkout__card-block-title">
@@ -58,12 +116,14 @@ const CheckOut = ({ setIsLoading, isLoading }) => {
               <RenderCard location={"demo"} />
             ) : (
               <>
-                <CustomCard
-                  customCardData={checkoutCardData}
-                  customTextRecipient={recipient}
-                  customText={text}
-                  customTextSender={sender}
-                />
+                <div>
+                  <CustomCard
+                    customCardData={checkoutCardData}
+                    customTextRecipient={recipient}
+                    customText={text}
+                    customTextSender={sender}
+                  />
+                </div>
                 <h3 className="page__list-item-title">
                   {checkoutCardData.title}
                 </h3>
@@ -71,7 +131,7 @@ const CheckOut = ({ setIsLoading, isLoading }) => {
             )}
           </div>
         </div>
-        <div className="line__mobile" style={{width: 300}}></div>
+        <div className="line__mobile" style={{ width: 300 }}></div>
         <div className="checkout__customizing-block">
           <span className="flipper-hint">
             Подпись отобразится на обратной стороне
@@ -112,6 +172,12 @@ const CheckOut = ({ setIsLoading, isLoading }) => {
                 maxLength={150}
               />
             </label>
+            <button
+                  className={`form__btn btn__buy`}
+                  onClick={() => onToggleExportCard()}
+                >
+                  Получить открытку
+                </button>
           </div>
         </div>
       </div>

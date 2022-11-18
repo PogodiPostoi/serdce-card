@@ -1,0 +1,156 @@
+// .exportCard {
+//     .exportCardFront {
+//         .exportCardFrontImg {
+
+//         }
+//     }
+//     .exportCardBack {
+//         .exportCardBackImg {
+
+//         }
+//         .exportCardBackTextRecipient {
+
+//         }
+//         .exportCardBackText {
+
+//         }
+//         .exportCardBackTextSender {
+
+//         }
+//     }
+// }
+
+.exportCard {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+
+
+        .exportCardFront, .exportCardBack {
+            box-sizing: border-box;
+            
+            width: 360px;
+            height: 460px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            border-radius: 15px;
+        }
+    
+        .exportCardFront {
+        }
+    
+        .exportCardBack {
+            position: relative;
+
+            background-color: #fff;
+
+            .exportCardBackImg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            .exportCardBackTextRecipient {
+                margin-top: 50px;
+                
+                font-size: 1.43rem;
+                font-weight: normal;
+            }
+
+            .exportCardBackTextSender {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+
+            .exportCardBackText {
+                padding: 0 20px;
+
+                font-size: 1.34rem;
+                font-weight: normal;
+            }
+        
+    }
+
+    .exportCardBackText, 
+    .exportCardBackTextRecipient,
+    .exportCardBackTextSender {
+        font-family: 'Neucha', cursive; 
+
+        margin: 20px 0;
+
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .exportCardBackText {
+        font-size: 18px;
+    }
+
+    .exportCardBackTextSender {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1023px) {
+    .exportCard {
+        width: 288px;
+        height: 368px;
+
+        .exportCardFrontImg, .exportCardBackImg {
+            width: 288px;
+            height: 368px;
+        }
+    }
+}
+
+@media (max-width: 490px) {
+    .exportCard {
+        height: auto;
+
+        .exportCardFront, .exportCardBack {
+            box-sizing: border-box;
+            
+            width: 144px;
+            height: 184px;
+            // width: 180px;
+            // height: 230px;
+
+            .exportCardFrontImg, 
+            .exportCardBackImg {
+                width: 100%;
+                height: 100%;
+            }
+
+            .exportCardBack {
+                .exportCardBackTextRecipient {
+                    margin-top: 20px;
+                    
+                    font-size: 10rem;
+                    font-weight: normal;
+                }
+    
+                .exportCardBackTextSender {
+                    font-size: 1rem;
+                    font-weight: normal;
+                }
+    
+                .exportCardBackText {
+                    margin-top: 0px;
+                    padding: 0 5px;
+    
+                    font-size: 1.24rem;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}

@@ -20,7 +20,7 @@ function CustomCard({
           <img
             className={styles.customCardFrontImg}
             src={customCardData.front_img}
-            alt="thief card"
+            alt="card"
           />
           <img
             className={styles.customCardSwitchBtn}
