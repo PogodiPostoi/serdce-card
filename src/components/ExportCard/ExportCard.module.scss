@@ -102,25 +102,75 @@
 
 @media (max-width: 1023px) {
     .exportCard {
-        width: 288px;
-        height: 368px;
+        width: 100%;
+        height: 100%;
+
+        .exportCardBack, 
+        .exportCardFront {
+            width: 288px;
+            height: 368px;    
+        }
 
         .exportCardFrontImg, .exportCardBackImg {
             width: 288px;
-            height: 368px;
+            height: 368px;  
+        }
+    }
+}
+
+@media (max-width: 745px) {
+    .exportCard {
+        .exportCardFront, .exportCardBack {
+            box-sizing: border-box;
+            
+            width: 216px;
+            height: 276px;
+
+            .exportCardFrontImg, 
+            .exportCardBackImg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .exportCardBack {
+            .exportCardBackTextRecipient {
+                margin-top: 30px;
+                
+                font-size: 1.3rem;
+                font-weight: normal;
+            }
+
+            .exportCardBackTextSender {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+
+            .exportCardBackText {
+                margin-top: 5px;
+                margin-bottom: 10px;
+                padding: 0 5px;
+
+                font-size: 1.24rem;
+                font-weight: normal;
+            }
         }
     }
 }
 
 @media (max-width: 490px) {
     .exportCard {
+        width: auto;
         height: auto;
+        flex-direction: column;
+        justify-content: center;
+
 
         .exportCardFront, .exportCardBack {
             box-sizing: border-box;
             
-            width: 144px;
-            height: 184px;
+            width: 252px;
+            height: 322px;
             // width: 180px;
             // height: 230px;
 
@@ -129,27 +179,60 @@
                 width: 100%;
                 height: 100%;
             }
+        }
 
-            .exportCardBack {
-                .exportCardBackTextRecipient {
-                    margin-top: 20px;
-                    
-                    font-size: 10rem;
-                    font-weight: normal;
-                }
-    
-                .exportCardBackTextSender {
-                    font-size: 1rem;
-                    font-weight: normal;
-                }
-    
-                .exportCardBackText {
-                    margin-top: 0px;
-                    padding: 0 5px;
-    
-                    font-size: 1.24rem;
-                    font-weight: normal;
-                }
+        .exportCardBack {
+            .exportCardBackTextRecipient {
+                margin-top: 30px;
+                
+                font-size: 1.3rem;
+                font-weight: normal;
+            }
+
+            .exportCardBackTextSender {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+
+            .exportCardBackText {
+                margin-top: 5px;
+                margin-bottom: 10px;
+                padding: 0 5px;
+
+                font-size: 1.24rem;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+@media (max-width: 385px) and (max-height: 845px) {
+    .exportCard {
+        .exportCardFront, .exportCardBack {
+            width: 216px;
+            height: 276px;
+        }
+    }
+}
+
+@media (max-width: 385px) and (max-height: 755px) {
+    .exportCard {
+        .exportCardFront, .exportCardBack {
+            width: 180px;
+            height: 230px;
+        }
+
+        .exportCardBack {
+            .exportCardBackTextRecipient {
+                font-size: 1.1rem;
+            }
+
+            .exportCardBackTextSender {
+                font-size: 0.8rem;
+            }
+
+            .exportCardBackText {
+                font-size: 1.1rem;
             }
         }
     }
