@@ -6,7 +6,7 @@ const ExportCard = ({
   customTextRecipient,
   customText,
   customTextSender,
-  customCardData
+  customCardData,
 }) => {
   return (
     <div className={styles.exportCard}>
@@ -18,28 +18,32 @@ const ExportCard = ({
         />
       </div>
       <div className={styles.exportCardBack}>
+        <div className={styles.exportCardBackBody}>
+          {customTextRecipient ? (
+            <p className={styles.exportCardBackTextRecipient}>
+              {customTextRecipient}
+            </p>
+          ) : (
+            <p className={styles.exportCardBackTextRecipient}>Кому</p>
+          )}
+          {customText ? (
+            <p className={styles.exportCardBackText}>{customText}</p>
+          ) : (
+            <p className={styles.exportCardBackText}>Ваше пожелание</p>
+          )}
+          {customTextSender ? (
+            <p className={styles.exportCardBackTextSender}>
+              {customTextSender}
+            </p>
+          ) : (
+            <p className={styles.exportCardBackTextSender}>От кого</p>
+          )}
+        </div>
         <img
           className={styles.exportCardBackImg}
           src={customCardData.back_img}
           alt="backside"
         />
-        {customTextRecipient ? (
-          <p className={styles.exportCardBackTextRecipient}>
-            {customTextRecipient}
-          </p>
-        ) : (
-          <p className={styles.exportCardBackTextRecipient}>Кому</p>
-        )}
-        {customText ? (
-          <p className={styles.exportCardBackText}>{customText}</p>
-        ) : (
-          <p className={styles.exportCardBackText}>Ваше пожелание</p>
-        )}
-        {customTextSender ? (
-          <p className={styles.exportCardBackTextSender}>{customTextSender}</p>
-        ) : (
-          <p className={styles.exportCardBackTextSender}>От кого</p>
-        )}
       </div>
     </div>
   );
